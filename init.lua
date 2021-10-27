@@ -17,6 +17,9 @@ g.maplocalleader = ','
 -- set global, window and buffer options
 require 'drhayes.options'
 
+-- Get those plugins rolling.
+require 'drhayes.plugins'
+
 
 -- require plugins and stuff
 -- require 'plugins'
@@ -34,7 +37,7 @@ require 'drhayes.options'
 --   endif
 -- ]], '')
 
-augroup("vimrc-main", {
+augroup('vimrc-main', {
   -- Save when focus lost.
   {'FocusLost', '*', 'silent! wa'},
 --   {'StdinReadPre', '*', 'let s:std_in=1'},
@@ -57,6 +60,10 @@ augroup("vimrc-main", {
 --   {'BufEnter,FocusGained,InsertLeave,WinEnter', '*', 'if &nu | set rnu   | endif'},
 --   {'BufLeave,FocusLost,InsertEnter,WinLeave',   '*', 'if &nu | set nornu | endif'},
 -- })
+
+augroup('packer_user_config', {
+  {'BufWritePost', 'plugins.lua', 'source', '<afile>', '| PackerCompile'}
+})
 
 -- -- we are done setting stuff up
 -- a.nvim_command("silent! helptags ALL")
