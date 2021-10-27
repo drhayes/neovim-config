@@ -62,13 +62,14 @@ return packer.startup(function(use)
     config = [[require('drhayes.nvimgps').setup()]],
   }
 
-  use({'Pocco81/Catppuccino.nvim',
-    -- 'Pocco81/Catppuccino.nvim'
+  use({'mhartington/oceanic-next',
+    --'nanotech/jellybeans.vim',
+    --'Pocco81/Catppuccino.nvim',
     -- 'GertjanReynaert/cobalt2-vim-theme',
     -- 'GlennLeo/cobalt2',
   --   requires = {'sheerun/vim-polyglot'},
     config = function()
-      vim.cmd[[colorscheme catppuccino]]
+      vim.cmd[[colorscheme OceanicNext]]
     end
   })
   -- https://github.com/phanviet/vim-monokai-pro
