@@ -27,7 +27,40 @@ return packer.startup(function(use)
   use('wbthomason/packer.nvim')
   use('mhinz/vim-startify')
 
-  use('sheerun/vim-polyglot')
+  -- fuzzy stuff
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+    config = [[require 'drhayes.telescope']],
+  }
+  use('nvim-telescope/telescope-fzy-native.nvim')
+  use('nvim-telescope/telescope-fzf-writer.nvim')
+  use('nvim-telescope/telescope-packer.nvim')
+  use('nvim-telescope/telescope-github.nvim')
+  use('nvim-telescope/telescope-symbols.nvim')
+  use 'nvim-telescope/telescope-dap.nvim'
+  use('cwebster2/github-coauthors.nvim')
+  use {'junegunn/fzf', run = './install --all'}
+  use 'junegunn/fzf.vim'
+
+  -- Syntax
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+      config = [[require('drhayes.treesitter').setup()]]
+    }
+    use 'nvim-treesitter/playground'
+    use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use 'nvim-treesitter/nvim-treesitter-refactor'
+    use {
+      'romgrk/nvim-treesitter-context',
+      requires = {'nvim-treesitter/nvim-treesitter'}
+    }
+    use 'p00f/nvim-ts-rainbow'
+    use 'windwp/nvim-ts-autotag'
+    use {
+      'SmiteshP/nvim-gps',
+      requires = {'nvim-treesitter/nvim-treesitter'},
+      config = [[require('drhayes.nvimgps').setup()]],
+    }
 
   use({'Pocco81/Catppuccino.nvim',
     -- 'Pocco81/Catppuccino.nvim'
