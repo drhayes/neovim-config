@@ -44,23 +44,23 @@ return packer.startup(function(use)
   use 'junegunn/fzf.vim'
 
   -- Syntax
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-      config = [[require('drhayes.treesitter').setup()]]
-    }
-    use 'nvim-treesitter/playground'
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
-    use 'nvim-treesitter/nvim-treesitter-refactor'
-    use {
-      'romgrk/nvim-treesitter-context',
-      requires = {'nvim-treesitter/nvim-treesitter'}
-    }
-    use 'p00f/nvim-ts-rainbow'
-    use 'windwp/nvim-ts-autotag'
-    use {
-      'SmiteshP/nvim-gps',
-      requires = {'nvim-treesitter/nvim-treesitter'},
-      config = [[require('drhayes.nvimgps').setup()]],
-    }
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
+    config = [[require('drhayes.treesitter').setup()]]
+  }
+  use 'nvim-treesitter/playground'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'nvim-treesitter/nvim-treesitter-refactor'
+  use {
+    'romgrk/nvim-treesitter-context',
+    requires = {'nvim-treesitter/nvim-treesitter'}
+  }
+  use 'p00f/nvim-ts-rainbow'
+  use 'windwp/nvim-ts-autotag'
+  use {
+    'SmiteshP/nvim-gps',
+    requires = {'nvim-treesitter/nvim-treesitter'},
+    config = [[require('drhayes.nvimgps').setup()]],
+  }
 
   use({'Pocco81/Catppuccino.nvim',
     -- 'Pocco81/Catppuccino.nvim'
@@ -105,6 +105,28 @@ return packer.startup(function(use)
   }
 
   use 'sheerun/vim-polyglot'
+
+  -- Tabs at the top.
+  use {
+    'akinsho/nvim-bufferline.lua',
+    requires = {'kyazdani42/nvim-web-devicons'},
+    config = "require('drhayes.bufferline').setup()",
+  }
+
+  -- Things at the bottom.
+  use {
+    'NTBBloodbath/galaxyline.nvim',
+    branch='main',
+    requires = {'kyazdani42/nvim-web-devicons'}
+  }
+
+  -- Things on the left side.
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+    config = "require('drhayes.gitsigns').setup()",
+  }
+
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
     require('packer').sync()
