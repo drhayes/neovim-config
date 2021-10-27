@@ -128,6 +128,8 @@ return packer.startup(function(use)
     config = "require('drhayes.gitsigns').setup()",
   }
 
+  use 'preservim/nerdcommenter'
+
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
     require('packer').sync()

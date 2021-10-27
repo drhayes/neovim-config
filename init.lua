@@ -7,9 +7,6 @@ local a = vim.api
 local augroup = utils.augroup
 
 a.nvim_command('set nocompatible')
---a.nvim_command("profile start profile.log")
---a.nvim_command("profile func *")
---a.nvim_command("profile file *")
 
 g.mapleader = ' '
 g.maplocalleader = ','
