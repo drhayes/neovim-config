@@ -21,15 +21,6 @@ require 'drhayes.plugins'
 local keyMappings = require 'drhayes.keyMappings'
 keyMappings.initKeymap()
 
--- require plugins and stuff
--- require 'plugins'
--- require('_mappings').init_keymap()
--- require'plugin_config'
--- local theme = require'_theme'
--- theme.colorscheme_setup("catppuccino")
--- theme.overrides_setup()
--- require('_galaxyline')
--- require('_mappings').setup_ft_mappings()
 
 -- a.nvim_exec([[
 --   if has ("autocmd")
@@ -56,15 +47,10 @@ augroup('vimrc-main', {
   {'FileType', 'go', 'BufWritePre *.go :GoFmt', 'BufWritePre *.go :GoImports'}
 })
 
--- augroup("numbertoggle", {
---   {'BufEnter,FocusGained,InsertLeave,WinEnter', '*', 'if &nu | set rnu   | endif'},
---   {'BufLeave,FocusLost,InsertEnter,WinLeave',   '*', 'if &nu | set nornu | endif'},
--- })
-
 augroup('packer_user_config', {
   {'BufWritePost', 'plugins.lua', 'source', '<afile>', '| PackerCompile'}
 })
 
--- -- we are done setting stuff up
--- a.nvim_command("silent! helptags ALL")
+ -- we are done setting stuff up
+ a.nvim_command("silent! helptags ALL")
 
