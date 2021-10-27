@@ -75,6 +75,36 @@ return packer.startup(function(use)
   -- https://github.com/haishanh/night-owl.vim
   -- https://github.com/dracula/vim
 
+  -- Github issue stuff.
+  use 'pwntester/octo.nvim'
+
+  -- debugging
+  use 'mfussenegger/nvim-dap'
+  use 'theHamsta/nvim-dap-virtual-text'
+  use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
+
+  -- LSP stuff
+  use 'neovim/nvim-lspconfig'
+  use 'folke/lua-dev.nvim'
+  use 'kosayoda/nvim-lightbulb'
+  use('tami5/lspsaga.nvim')
+  use {'nvim-lua/lsp-status.nvim'}
+  use{'ray-x/lsp_signature.nvim'}
+  use {
+    'folke/lsp-trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = [[require('drhayes.trouble').setup()]],
+  }
+
+  -- What keys am I pressing?
+  use {
+    'folke/which-key.nvim',
+    config = function()
+      require('drhayes.whichkey').setup()
+    end,
+  }
+
+  use 'sheerun/vim-polyglot'
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
     require('packer').sync()

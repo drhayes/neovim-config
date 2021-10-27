@@ -20,6 +20,9 @@ require 'drhayes.options'
 -- Get those plugins rolling.
 require 'drhayes.plugins'
 
+-- Do all our key mappings.
+local keyMappings = require 'drhayes.keyMappings'
+keyMappings.initKeymap()
 
 -- require plugins and stuff
 -- require 'plugins'
