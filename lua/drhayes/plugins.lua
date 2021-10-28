@@ -128,6 +128,7 @@ return packer.startup(function(use)
     config = "require('drhayes.gitsigns').setup()",
   }
 
+  -- Comments are good.
   use 'preservim/nerdcommenter'
 
   -- Bootstrap if we don't already have it.

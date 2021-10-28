@@ -10,7 +10,7 @@ function M.setup()
     },
   }
 
-  require'nvim-treesitter.configs'.setup {
+  require('nvim-treesitter.configs').setup({
     ensure_installed = "all",
     textobjects = {
       select = {
@@ -41,12 +41,12 @@ function M.setup()
     },
     refactor = {
       highlight_definitions = { enable = true },
-      highlight_current_scope = { enable = true },
+      highlight_current_scope = { enable = false },
     },
     autotag = {
       enable = true
     }
-  }
+  })
 end
 
 return M

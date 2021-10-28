@@ -6,7 +6,7 @@ local nvim_command = vim.api.nvim_command
 
 local HOME_DIR = vim.fn.expand('$HOME')
 
--- local augroup = require("utils").augroup
+-- local augroup = require('utils').augroup
 
 opt.autoindent = true
 opt.autoread = true
@@ -22,7 +22,7 @@ opt.colorcolumn = '0'
 opt.completeopt = 'menu,menuone'
 opt.confirm = true
 opt.cursorline = true
--- opt.diffopt = "filler,internal,algorithm:histogram,indent-heuristic"
+-- opt.diffopt = 'filler,internal,algorithm:histogram,indent-heuristic'
 opt.expandtab = true
 opt.fillchars = {
   eob = '~',
@@ -42,7 +42,7 @@ opt.formatoptions = opt.formatoptions
   + 'n' -- Indent past the formatlistpat, not underneath it.
   + 'j' -- Auto-remove comments if possible.
   - '2' -- I'm not in gradeschool anymore
-opt.guifont = "Inconsolata:h15"
+opt.guifont = 'Inconsolata:h15'
 opt.hidden = true
 opt.hlsearch = true
 opt.ignorecase = true
@@ -52,22 +52,22 @@ opt.lazyredraw = true
 opt.linebreak = true
 opt.list = true
 opt.listchars = {
-  tab="▷ ",
-  trail="·",
-  extends="…",
-  precedes="…",
-  conceal="┊",
-  nbsp="○",
-  eol="¬",
+  conceal='┊',
+  --eol='¬',
+  extends='…',
+  nbsp='○',
+  precedes='…',
+  tab='▷ ',
+  trail='·',
 }
 opt.matchtime = 5
 opt.mouse = 'a'
 opt.number = true
--- opt.pastetoggle = "<F11>"
+-- opt.pastetoggle = '<F11>'
 opt.previewheight = 25
 opt.pumblend = 20
 opt.scrolloff = 8
-opt.shell = "/usr/bin/fish"
+opt.shell = '/usr/bin/fish'
 opt.shiftround = true
 opt.shiftwidth = 2
 opt.shortmess = vim.o.shortmess .. 'c'
@@ -75,7 +75,7 @@ opt.showmatch = true
 opt.showmode = false
 opt.sidescroll = 1
 opt.sidescrolloff = 15
--- opt.signcolumn = "yes"
+-- opt.signcolumn = 'yes'
 opt.smartcase = true
 opt.smartindent = true
 opt.smarttab = true
@@ -102,7 +102,7 @@ end
 
 -- if has('conceal') then
 --   opt.conceallevel = 2
---   opt.concealcursor = "niv"
+--   opt.concealcursor = 'niv'
 -- end
 
 if exists('+undofile') == 1 then
@@ -119,6 +119,6 @@ if has('persistent_undo') then
   opt.undoreload = 500
 end
 
--- augroup("ftspelloptions", {
+-- augroup('ftspelloptions", {
 --   {"FileType", "gitcommit", "set spell"},
 -- })
