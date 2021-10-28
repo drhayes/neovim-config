@@ -1,4 +1,3 @@
-
 local keyMappings = {}
 
 local function bufferMaps()
@@ -41,6 +40,17 @@ local function gitMaps()
   }
 end
 
+local function searchMaps()
+  return {
+    name = "+search",
+    c = { '<cmd>let @/=""<cr>', "Clear search highlight" },
+    g = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Grep" },
+    l = { "<cmd>lua require('telescope.builtin').loclist()<CR>", "Loclist" },
+    q = { "<cmd>lua require('telescope.builtin').quickfix()<CR>","Quickfix" },
+    s = { "<cmd>lua require('telescope.builtin').spell_suggest()<CR>", "Spelling" },
+  }
+end
+
 function keyMappings.initKeymap()
   local wk = require 'which-key'
 
@@ -48,6 +58,7 @@ function keyMappings.initKeymap()
     b = bufferMaps(),
     f = fileMaps(),
     g = gitMaps(),
+    s = searchMaps(),
   }, { prefix = '<leader>' })
 end
 

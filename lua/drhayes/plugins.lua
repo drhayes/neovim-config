@@ -131,6 +131,17 @@ return packer.startup(function(use)
   -- Comments are good.
   use 'preservim/nerdcommenter'
 
+  -- Trailing whitespace generally sucks.
+  use 'ntpeters/vim-better-whitespace'
+
+  -- Git in neovim?
+  use {
+    'TimUntersberger/neogit',
+    requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'},
+    config = "require('drhayes.neogit').setup()",
+  }
+
+
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
     require('packer').sync()
