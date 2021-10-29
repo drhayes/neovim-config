@@ -8,6 +8,8 @@ local i = ls.insert_node
 local f = ls.function_node
 local c = ls.choice_node
 local d = ls.dynamic_node
+local extras = require 'luasnip.extras'
+local m = extras.match
 
 ls.snippets = {
   all = {},
@@ -64,5 +66,30 @@ ls.snippets = {
       i(2, '1'),
       i(0),
     }),
+
+    s('s.', {
+      t('self.'),
+      i(1, 'thing'),
+      t(' = '),
+      i(2),
+      i(0),
+    }),
+
+    s('l.', {
+      t('local '),
+      i(1, 'thing'),
+      t(' = self.'),
+      i(2),
+      i(0),
+    }),
+
+    s('super', {
+      i(1, 'ClassName'),
+      t('.super.'),
+      i(2, 'method'),
+      t('(self'),
+      i(0),
+      t(')'),
+    })
   }
 }
