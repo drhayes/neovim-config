@@ -21,6 +21,8 @@ require 'drhayes.plugins'
 local keyMappings = require 'drhayes.keyMappings'
 keyMappings.initKeymap()
 
+require 'drhayes.snippets'
+
 
 -- a.nvim_exec([[
 --   if has ("autocmd")

@@ -135,11 +135,30 @@ return packer.startup(function(use)
   use 'ntpeters/vim-better-whitespace'
 
   -- Git in neovim?
-  use {
-    'TimUntersberger/neogit',
-    requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'},
-    config = "require('drhayes.neogit').setup()",
-  }
+ -- use {
+--    'TimUntersberger/neogit',
+--    requires = { 'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'},
+--    config = "require('drhayes.neogit').setup()",
+--  }
+
+    -- Completion
+    use {
+      "hrsh7th/nvim-cmp",
+      config = function()
+        require('drhayes.lsp').setup()
+        require("drhayes.completion").setup()
+      end,
+      requires = {
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-nvim-lua",
+        "Saecki/crates.nvim",
+        "f3fora/cmp-spell"
+      },
+    }
 
 
   -- Bootstrap if we don't already have it.
