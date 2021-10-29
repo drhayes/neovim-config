@@ -44,20 +44,20 @@ local function fileMaps()
   }
 end
 
-local function gitMaps()
-  return {
-    name = "+git",
-    b = { "<Cmd>Telescope git_branches<CR>", "branches" },
-    c = { "<Cmd>Telescope git_commits<CR>", "commits" },
-    d = { "<cmd>DiffviewOpen<cr>", "DiffView" },
-    g = { "<cmd>lua require('neogit').open()<cr>", "Neogit" },
-    h = { name = "+hunk" },
-    i = { "<cmd>lua require('telescope').extensions.gh.issues()<CR>", "issues" },
-    p = { "<cmd>lua require('telescope').extensions.gh.pull_request()<CR>", "pull requests" },
-    s = { "<Cmd>Telescope git_status<CR>", "status" },
-    w = { ":Gwrite<cr>", "Git Write" },
-  }
-end
+--local function gitMaps()
+  --return {
+    --name = "+git",
+    --b = { "<Cmd>Telescope git_branches<CR>", "branches" },
+    --c = { "<Cmd>Telescope git_commits<CR>", "commits" },
+    ----d = { "<cmd>DiffviewOpen<cr>", "DiffView" },
+    --g = { "<cmd>lua require('neogit').open()<cr>", "Neogit" },
+    --h = { name = "+hunk" },
+    --i = { "<cmd>lua require('telescope').extensions.gh.issues()<CR>", "issues" },
+    --p = { "<cmd>lua require('telescope').extensions.gh.pull_request()<CR>", "pull requests" },
+    --s = { "<Cmd>Telescope git_status<CR>", "status" },
+    --w = { ":Gwrite<cr>", "Git Write" },
+  --}
+--end
 
 local function searchMaps()
   return {
@@ -66,6 +66,7 @@ local function searchMaps()
     g = { "<cmd>lua require('telescope.builtin').live_grep()<CR>", "Grep" },
     l = { "<cmd>lua require('telescope.builtin').loclist()<CR>", "Loclist" },
     q = { "<cmd>lua require('telescope.builtin').quickfix()<CR>","Quickfix" },
+    r = { "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", "Document Symbols" },
     s = { "<cmd>lua require('telescope.builtin').spell_suggest()<CR>", "Spelling" },
   }
 end
@@ -76,7 +77,7 @@ function keyMappings.initKeymap()
   wk.register({
     b = bufferMaps(),
     f = fileMaps(),
-    g = gitMaps(),
+    --g = gitMaps(),
     s = searchMaps(),
   }, { prefix = '<leader>' })
 end

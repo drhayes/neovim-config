@@ -46,5 +46,23 @@ ls.snippets = {
       i(0),
       t('))'),
     }),
+
+    s('inc', {
+      i(1, 'thing'),
+      t(' = '),
+      f(function(args) return args[1][1] end, 1),
+      t(' + '),
+      i(2, '1'),
+      i(0),
+    }),
+
+    s('dec', {
+      i(1, 'thing'),
+      t(' = '),
+      f(function(args) return args[1][1] end, 1),
+      t(' - '),
+      i(2, '1'),
+      i(0),
+    }),
   }
 }
