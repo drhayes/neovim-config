@@ -158,8 +158,8 @@ return packer.startup(function(use)
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lua",
-        "Saecki/crates.nvim",
-        "f3fora/cmp-spell"
+        -- "Saecki/crates.nvim",
+        "f3fora/cmp-spell",
       },
     }
 
@@ -167,6 +167,15 @@ return packer.startup(function(use)
 
   -- Set path searching options.
   use 'tpope/vim-apathy'
+
+  -- Automatically insert end structures.
+  -- use 'tpope/vim-endwise'
+
+  -- Comments happen a lot.
+  use 'tpope/vim-commentary'
+
+  -- I often surround things with things.
+  use 'tpope/vim-surround'
 
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
