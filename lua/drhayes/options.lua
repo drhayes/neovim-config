@@ -42,7 +42,7 @@ opt.formatoptions = opt.formatoptions
   + 'n' -- Indent past the formatlistpat, not underneath it.
   + 'j' -- Auto-remove comments if possible.
   - '2' -- I'm not in gradeschool anymore
-opt.guifont = 'Inconsolata:h15'
+opt.guifont = 'MonoLisa:12'
 opt.hidden = true
 opt.hlsearch = true
 opt.ignorecase = true

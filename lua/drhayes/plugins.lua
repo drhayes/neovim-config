@@ -63,12 +63,15 @@ return packer.startup(function(use)
   }
 
   use({'mhartington/oceanic-next',
+    --'rmehri01/onenord.nvim',
+    --'mhartington/oceanic-next',
     --'nanotech/jellybeans.vim',
     --'Pocco81/Catppuccino.nvim',
     -- 'GertjanReynaert/cobalt2-vim-theme',
     -- 'GlennLeo/cobalt2',
   --   requires = {'sheerun/vim-polyglot'},
     config = function()
+      --vim.cmd[[colorscheme onenord]]
       vim.cmd[[colorscheme OceanicNext]]
     end
   })
@@ -160,6 +163,10 @@ return packer.startup(function(use)
       },
     }
 
+  use 'jiangmiao/auto-pairs'
+
+  -- Set path searching options.
+  use 'tpope/vim-apathy'
 
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
