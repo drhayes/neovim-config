@@ -177,6 +177,16 @@ return packer.startup(function(use)
   -- I often surround things with things.
   use 'tpope/vim-surround'
 
+  -- Who doesn't want a tree view of their filesystem?
+  use { 'kyazdani42/nvim-tree.lua',
+    -- commit = "f1f1488",
+    config = function()
+      require('drhayes.nvim-tree').setup()
+    end,
+    --cmd = {"NvimTreeFindFile", "NvimTreeToggle"},
+    --opt = true
+  }
+
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
     require('packer').sync()
