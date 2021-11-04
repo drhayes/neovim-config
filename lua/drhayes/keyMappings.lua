@@ -18,7 +18,6 @@ local function map(mode, key, result, opts)
   end
 end
 
-
 local function bufferMaps()
   return {
     name = "+buffer",
