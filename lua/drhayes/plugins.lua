@@ -74,6 +74,7 @@ return packer.startup(function(use)
     config = function()
       --vim.cmd[[colorscheme onenord]]
       -- vim.cmd[[colorscheme OceanicNext]]
+      vim.g.tokyonight_style = 'night'
       vim.cmd[[colorscheme tokyonight]]
     end
   })
