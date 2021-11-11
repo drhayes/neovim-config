@@ -62,7 +62,8 @@ return packer.startup(function(use)
     config = [[require('drhayes.nvimgps').setup()]],
   }
 
-  use({'mhartington/oceanic-next',
+  use({'folke/tokyonight.nvim',
+    --'mhartington/oceanic-next',
     --'rmehri01/onenord.nvim',
     --'mhartington/oceanic-next',
     --'nanotech/jellybeans.vim',
@@ -72,7 +73,8 @@ return packer.startup(function(use)
   --   requires = {'sheerun/vim-polyglot'},
     config = function()
       --vim.cmd[[colorscheme onenord]]
-      vim.cmd[[colorscheme OceanicNext]]
+      -- vim.cmd[[colorscheme OceanicNext]]
+      vim.cmd[[colorscheme tokyonight]]
     end
   })
   -- https://github.com/phanviet/vim-monokai-pro
