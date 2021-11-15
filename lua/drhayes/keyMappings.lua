@@ -80,6 +80,9 @@ function keyMappings.initKeymap()
     --g = gitMaps(),
     s = searchMaps(),
   }, { prefix = '<leader>' })
+
+  vim.api.nvim_set_keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+  vim.api.nvim_set_keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
 end
 
 function keyMappings.lsp_setup(client, bufnr)
@@ -126,14 +129,14 @@ function keyMappings.lsp_setup(client, bufnr)
     name = '+goto',
     r = { '<cmd>Telescope lsp_references<cr>', 'References' },
     R = { '<cmd>LspTrouble lsp_references<cr>', 'Trouble References' },
-    D = { '<cmd>lua require'lspsaga.provider'.preview_definition()<CR>', 'Peek Definition' },
+    D = { '<cmd>lua require"lspsaga.provider".preview_definition()<CR>', 'Peek Definition' },
     d = { '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
     s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature Help' },
     I = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Goto Implementation' },
     -- I = { '<Cmd>lua vim.lsp.buf.declaration()<CR>', 'Goto Declaration' },
     t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Goto Type Definition' },
     k = { '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Lsp Hoverdoc' },
-    h = { '<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>', 'Lsp Finder' },
+    h = { '<cmd>lua require"lspsaga.provider".lsp_finder()<CR>', 'Lsp Finder' },
     w = { '<cmd>HopWord<CR>', 'Hop to word' },
     ['1'] = { '<cmd>HopChar1<CR>', 'Hop to single character' },
   }
