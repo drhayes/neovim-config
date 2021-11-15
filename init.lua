@@ -21,7 +21,8 @@ require 'drhayes.plugins'
 local keyMappings = require 'drhayes.keyMappings'
 keyMappings.initKeymap()
 
-require 'drhayes.snippets'
+-- require 'drhayes.snippets'
+-- require 'drhayes.galaxyline'
 
 
 -- a.nvim_exec([[

@@ -149,20 +149,23 @@ return packer.startup(function(use)
 
     -- Completion
     use {
-      "hrsh7th/nvim-cmp",
+      'hrsh7th/nvim-cmp',
       config = function()
         require('drhayes.lsp').setup()
-        require("drhayes.completion").setup()
+        require('drhayes.completion').setup()
       end,
       requires = {
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-nvim-lua",
-        -- "Saecki/crates.nvim",
-        "f3fora/cmp-spell",
+        -- 'L3MON4D3/LuaSnip',
+        -- 'saadparwaiz1/cmp_luasnip',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-nvim-lua',
+        'hrsh7th/vim-vsnip',
+        'hrsh7th/vim-vsnip-integ',
+        'hrsh7th/cmp-vsnip',
+        -- 'Saecki/crates.nvim',
+        'f3fora/cmp-spell',
       },
     }
 
@@ -189,6 +192,18 @@ return packer.startup(function(use)
     --cmd = {"NvimTreeFindFile", "NvimTreeToggle"},
     --opt = true
   }
+
+  use 'editorconfig/editorconfig-vim'
+
+  -- use 'ggandor/lightspeed.nvim'
+ use {
+  'phaazon/hop.nvim',
+  branch = 'v1', -- optional but strongly recommended
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup({ keys = 'asdghklqwertyuiopzxcvbnmf' })
+  end
+}
 
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then

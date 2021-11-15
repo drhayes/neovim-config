@@ -22,14 +22,12 @@ local menuLookup = {
   path = "(Path)",
   calc = "(Calc)",
   vsnip = "(Snippet)",
-  luasnip = "(Snippet)",
   buffer = "(Buffer)",
   spell = "(Spell)",
 }
 
 function M.setup()
   local cmp = require("cmp")
-  local luasnip = require("luasnip")
 
   cmp.setup {
     formatting = {
@@ -47,63 +45,52 @@ function M.setup()
     },
     snippet = {
       expand = function(args)
-        luasnip.lsp_expand(args.body)
+        vim.fn["vsnip#anonymous"](args.body)
       end,
     },
     documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      border = 'rounded',
     },
     sources = {
-      { name = "nvim_lsp" },
-      { name = "path" },
-      { name = "luasnip" },
-      { name = "nvim_lua" },
-      { name = "buffer" },
-      { name = "calc" },
-      { name = "emoji" },
-      { name = "treesitter" },
-      { name = "crates" },
-      { name = "spell" },
+      { name = 'nvim_lua' },
+      { name = 'nvim_lsp' },
+      { name = 'buffer' },
+      { name = 'vsnip' },
+      { name = 'emoji' },
+      { name = 'treesitter' },
+      { name = 'crates' },
+      { name = 'spell' },
+      { name = 'path' },
+      { name = 'calc' },
     },
     mapping = {
-      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        elseif cmp.visible() then
-          cmp.complete()
-          --cmp.select_next_item()
-        --elseif luasnip.expand_or_jumpable() then
-          --luasnip.expand_or_jump()
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif vim.fn['vsnip#available']() == 1 then
+          feedkey('<Plug>(vsnip-expand-or-jump)', '')
         elseif has_words_before() then
           cmp.complete()
         else
           fallback()
-        end      end, {
-          "i",
-          "s",
-        }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        elseif cmp.visible() then
-          cmp.select_prev_item()
-        --elseif luasnip.jumpable(-1) then
-          --luasnip.jump(-1)
-        else
-          fallback()
         end
-      end, {
-          "i",
-          "s",
-        }),
+      end, { 'i', 's', }),
 
-      ["<C-Space>"] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping.close(),
-      ["<CR>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false,
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif vim.fn['vsnip#jumpable'](-1) == 1 then
+          feedkey('<Plug>(vsnip-jump-prev)', '')
+        end
+      end, { 'i', 's', }),
+
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
       },
     },
   }
