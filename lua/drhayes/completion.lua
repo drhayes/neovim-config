@@ -9,12 +9,16 @@ local function t(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-local function check_backspace()
-    local col = vim.fn.col('.') - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
+local function feedkey(str, mode, escape_csi)
+  return vim.api.nvim_feedkeys(t(str), mode, escape_csi)
 end
 
-local is_emmet_active = function() return false end
+-- local function check_backspace()
+--     local col = vim.fn.col('.') - 1
+--     return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
+-- end
+
+-- local is_emmet_active = function() return false end
 
 local menuLookup = {
   nvim_lsp = "(LSP)",
@@ -29,7 +33,7 @@ local menuLookup = {
 function M.setup()
   local cmp = require("cmp")
 
-  cmp.setup {
+  cmp.setup({
     formatting = {
       format = function(entry, vim_item)
         local icons = M.icons
@@ -53,9 +57,9 @@ function M.setup()
     },
     sources = {
       { name = 'nvim_lua' },
+      { name = 'vsnip' },
       { name = 'nvim_lsp' },
       { name = 'buffer' },
-      { name = 'vsnip' },
       { name = 'emoji' },
       { name = 'treesitter' },
       { name = 'crates' },
@@ -64,12 +68,12 @@ function M.setup()
       { name = 'calc' },
     },
     mapping = {
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
       ['<Tab>'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-        elseif vim.fn['vsnip#available']() == 1 then
+        elseif vim.fn['vsnip#available'](1) == 1 then
           feedkey('<Plug>(vsnip-expand-or-jump)', '')
         elseif has_words_before() then
           cmp.complete()
@@ -86,14 +90,17 @@ function M.setup()
         end
       end, { 'i', 's', }),
 
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<CR>'] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Replace,
         select = true,
-      },
+      }),
     },
-  }
+  })
 end
 
 M.icons = {

@@ -21,22 +21,21 @@ require 'drhayes.plugins'
 local keyMappings = require 'drhayes.keyMappings'
 keyMappings.initKeymap()
 
--- require 'drhayes.snippets'
--- require 'drhayes.galaxyline'
+require 'drhayes.galaxyline'
 
 
--- a.nvim_exec([[
---   if has ("autocmd")
---     filetype plugin indent on
---   endif
--- ]], '')
+a.nvim_exec([[
+  if has ("autocmd")
+    filetype plugin indent on
+  endif
+]], '')
 
 augroup('vimrc-main', {
   -- Save when focus lost.
   {'FocusLost', '*', 'silent! wa'},
 --   {'StdinReadPre', '*', 'let s:std_in=1'},
---   -- strip trailing whitespace
---   -- vim.cmd [[ autocmd BufWritePre * :%s/\s\+$//e ]]
+  -- strip trailing whitespace
+  -- vim.cmd [[ autocmd BufWritePre * :%s/\s\+$//e ]],
 --   -- starphleet
 --   {'BufRead,BufNewFile', 'after_containerize,on_containerize,orders', 'set filetype=sh'},
 --   {'BufRead,BufNewFile', '~/.zfunc/*', 'set filetype=zsh'},

@@ -74,8 +74,7 @@ return packer.startup(function(use)
     config = function()
       --vim.cmd[[colorscheme onenord]]
       -- vim.cmd[[colorscheme OceanicNext]]
-      vim.g.tokyonight_style = 'night'
-      vim.cmd[[colorscheme tokyonight]]
+      require('drhayes.theme').setup()
     end
   })
   -- https://github.com/phanviet/vim-monokai-pro
@@ -138,6 +137,15 @@ return packer.startup(function(use)
   use 'preservim/nerdcommenter'
 
   -- Trailing whitespace generally sucks.
+  use {
+    'ntpeters/vim-better-whitespace',
+    config = function ()
+      local g = vim.g
+      g.better_whitespace_enabled = 1
+      g.strip_whitespace_on_save = 1
+
+    end
+  }
   use 'ntpeters/vim-better-whitespace'
 
   -- Git in neovim?
@@ -147,29 +155,29 @@ return packer.startup(function(use)
 --    config = "require('drhayes.neogit').setup()",
 --  }
 
-    -- Completion
-    use {
-      'hrsh7th/nvim-cmp',
-      config = function()
-        require('drhayes.lsp').setup()
-        require('drhayes.completion').setup()
-      end,
-      requires = {
-        -- 'L3MON4D3/LuaSnip',
-        -- 'saadparwaiz1/cmp_luasnip',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-nvim-lua',
-        'hrsh7th/vim-vsnip',
-        'hrsh7th/vim-vsnip-integ',
-        'hrsh7th/cmp-vsnip',
-        -- 'Saecki/crates.nvim',
-        'f3fora/cmp-spell',
-      },
-    }
+  -- Completion
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('drhayes.lsp').setup()
+      require('drhayes.completion').setup()
+    end,
+    requires = {
+      -- 'L3MON4D3/LuaSnip',
+      -- 'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/vim-vsnip',
+      'hrsh7th/vim-vsnip-integ',
+      'hrsh7th/cmp-vsnip',
+      -- 'Saecki/crates.nvim',
+      'f3fora/cmp-spell',
+    },
+  }
 
-  use 'jiangmiao/auto-pairs'
+  use 'windwp/nvim-autopairs'
 
   -- Set path searching options.
   use 'tpope/vim-apathy'

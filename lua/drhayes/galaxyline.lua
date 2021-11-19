@@ -6,12 +6,11 @@ local fileinfo = require 'galaxyline.providers.fileinfo'
 local diagnostic = require('galaxyline.providers.diagnostic')
 local conditions = require('galaxyline.condition')
 local vcs = require('galaxyline.providers.vcs')
-local u = require'cwebster.utils'.u
-local theme = require'cwebster.theme'
-local colors = theme.galaxyline_colors
-local mode_color = theme.mode_color
-local gps = require("nvim-gps")
-local lsp_status = require("lsp-status")
+local u = require('drhayes.utils').u
+local theme = require('drhayes.theme')
+local colors = theme.colors
+local gps = require('nvim-gps')
+local lsp_status = require('lsp-status')
 local lsp = vim.lsp
 
 
@@ -40,7 +39,7 @@ local sep = {
 }
 
 local icons = {
-  locked = "🔒",
+  locked = '🔒',
   unsaved = u 'f693',
   dos = u 'e70f',
   unix = u 'f17c',
@@ -82,7 +81,7 @@ local function has_file_type()
 end
 
 local function mode_label() return mode_map[vim.fn.mode()] or 'N/A' end
-local function mode_hl() return mode_color[vim.fn.mode()] or colors.none end
+local function mode_hl() return colors.none end
 
 local function highlight(group, fg, bg, gui)
   local cmd = string.format('highlight %s guifg=%s guibg=%s', group, fg, bg)
@@ -120,8 +119,8 @@ gls.left = {
     ViMode = {
       provider = function()
         -- auto change color according the vim mode
-        highlight("GalaxyViMode", mode_hl(), colors.none, "bold" )
-        return mode_label() .. " "
+        highlight('GalaxyViMode', mode_hl(), colors.none, 'bold' )
+        return mode_label() .. ' '
       end,
       highlight = {mode_hl(), colors.none, 'bold'},
     },
@@ -161,8 +160,8 @@ gls.left = {
   {
     current_dir = {
         provider = function()
-            local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-            return "  " .. dir_name .. " "
+            local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+            return '  ' .. dir_name .. ' '
         end,
         highlight = {colors.blue, colors.none},
     }
@@ -170,14 +169,14 @@ gls.left = {
   {
     GitBranch = {
       provider = function() return vim.b.gitsigns_head end,
-      icon = icons.branch .. " ",
+      icon = icons.branch .. ' ',
       condition = vcs.check_git_workspace,
       highlight = {colors.yellow ,colors.none},
     }
   },
   {
     spacer = {
-      provider = function() return " " end,
+      provider = function() return ' ' end,
       condition = buffer_not_empty and checkwidth,
     }
   },
@@ -207,21 +206,21 @@ gls.left = {
   },
   {
     DiagnosticError = {
-      provider = "DiagnosticError",
-      icon = " ✘ ",
+      provider = 'DiagnosticError',
+      icon = ' ✘ ',
       highlight = {colors.red, colors.none}
     }
   },
   {
     DiagnosticWarn = {
-      provider = "DiagnosticWarn",
-      icon = "  ",
+      provider = 'DiagnosticWarn',
+      icon = '  ',
       highlight = {colors.yellow, colors.none}
     }
   },
   -- {
   --   LeftEnd = {
-  --     provider = function() return "" end,
+  --     provider = function() return '' end,
   --     -- separator = sep.slant_alt_left,
   --     separator = sep.slant_left,
   --     separator_highlight = {colors.line_bg,colors.bg_none},
@@ -233,7 +232,7 @@ gls.left = {
 gls.mid = {
   {
     NvimGPS = {
-      provider = function() return "" end, --gps.get_location() end,
+      provider = function() return '' end, --gps.get_location() end,
       condition = function() return gps.is_available() end,
       highlight = {colors.fg_gutter, colors.none},
       separator_highlight = {colors.fg_gutter, colors.none}
@@ -273,8 +272,8 @@ gls.right = {
    FileEncoding = {
      provider = function()
         local encoding = string.lower(fileinfo.get_file_encode())
-        encoding = encoding:gsub("^%s*(.-)%s*$", "%1")
-        if encoding == "utf-8" then
+        encoding = encoding:gsub('^%s*(.-)%s*$', '%1')
+        if encoding == 'utf-8' then
           return ''
         end
         return encoding..' '
@@ -285,7 +284,7 @@ gls.right = {
  },
  -- {
  --    RightEnd = {
- --      provider = function() return "" end,
+ --      provider = function() return '' end,
  --      separator = sep.slant_alt_right,
  --      separator_highlight = {colors.line_bg,colors.bg_none},
  --      highlight = {colors.line_bg,colors.none}
@@ -327,7 +326,7 @@ gls.right = {
   },
   {
     PositionVis = {
-      provider = "ScrollBar",
+      provider = 'ScrollBar',
       highlight = {colors.gray}
     }
   },
