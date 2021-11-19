@@ -31,7 +31,8 @@ local menuLookup = {
 }
 
 function M.setup()
-  local cmp = require("cmp")
+  local cmp = require('cmp')
+  local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
   cmp.setup({
     formatting = {
@@ -101,6 +102,8 @@ function M.setup()
       }),
     },
   })
+
+  cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 end
 
 M.icons = {

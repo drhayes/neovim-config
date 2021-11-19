@@ -15,16 +15,16 @@ local lsp = vim.lsp
 
 
 gl.short_line_list = {
-    'LuaTree',
-    'dbui',
-    'startify',
-    'term',
-    'nerdtree',
-    'fugitive',
-    'fugitiveblame',
-    'plug',
-    'NvimTree',
-    'OUTLINE'
+  'LuaTree',
+  'dbui',
+  'startify',
+  'term',
+  'nerdtree',
+  'fugitive',
+  'fugitiveblame',
+  'plug',
+  'NvimTree',
+  'OUTLINE'
 }
 
 local sep = {
@@ -53,13 +53,11 @@ local icons = {
 }
 
 local mode_map = {
-  n = '<N>',
-  i = '<I>',
-  c= '<C>',
-  V= '<V>',
-  [''] = '<V>',
-  v ='<V>',
-  --c  = 'COMMAND-LINE',
+  n = 'NORMAL',
+  i = 'INSERT',
+  c= 'COMMAND',
+  V= 'VISUAL',
+  [''] = 'VISUAL',
   ['r?'] = ':CONFIRM',
   rm = '--MORE',
   R  = '<R>',

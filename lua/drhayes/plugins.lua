@@ -177,7 +177,12 @@ return packer.startup(function(use)
     },
   }
 
-  use 'windwp/nvim-autopairs'
+  use {
+    'windwp/nvim-autopairs',
+    config = function ()
+      require('nvim-autopairs').setup()
+    end
+  }
 
   -- Set path searching options.
   use 'tpope/vim-apathy'
@@ -204,14 +209,16 @@ return packer.startup(function(use)
   use 'editorconfig/editorconfig-vim'
 
   -- use 'ggandor/lightspeed.nvim'
- use {
-  'phaazon/hop.nvim',
-  branch = 'v1', -- optional but strongly recommended
-  config = function()
-    -- you can configure Hop the way you like here; see :h hop-config
-    require'hop'.setup({ keys = 'asdghklqwertyuiopzxcvbnmf' })
-  end
-}
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v1', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup({ keys = 'asdghklqwertyuiopzxcvbnmf' })
+    end
+  }
+
+  use 'fladson/vim-kitty'
 
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then

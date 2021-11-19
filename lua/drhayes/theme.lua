@@ -11,6 +11,10 @@ local theme = {
 }
 
 function theme.setup()
+  vim.g.tokyonight_style = 'storm'
+  vim.g.tokyonight_italic_comments = true
+  vim.g.tokyonight_italic_functions = true
+  vim.g.tokyonight_dark_float = true
   vim.cmd[[colorscheme tokyonight]]
 end
 
