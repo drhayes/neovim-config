@@ -45,7 +45,7 @@ augroup('vimrc-main', {
   {'TextYankPost', '*', 'silent! lua vim.highlight.on_yank { higroup="Visual", timeout=200 }' },
   {'FileType', 'markdown', 'setlocal spell'},
   {'FileType', 'yaml', 'setlocal ts=2 sts=2 sw=2 expandtab'},
-  {'BufWritePost', 'plugins.lua', 'PackerCompile'},
+  -- {'BufWritePost', 'plugins.lua', 'PackerCompile'},
   {'FileType', 'go', 'BufWritePre *.go :GoFmt', 'BufWritePre *.go :GoImports'}
 })
 

@@ -143,10 +143,9 @@ return packer.startup(function(use)
       local g = vim.g
       g.better_whitespace_enabled = 1
       g.strip_whitespace_on_save = 1
-
+      g.strip_whitespace_confirm = 0
     end
   }
-  use 'ntpeters/vim-better-whitespace'
 
   -- Git in neovim?
  -- use {
@@ -219,6 +218,11 @@ return packer.startup(function(use)
   }
 
   use 'fladson/vim-kitty'
+
+  use({
+    'earthly/earthly.vim',
+    branch = 'main'
+  })
 
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
