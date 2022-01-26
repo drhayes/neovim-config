@@ -137,8 +137,8 @@ function keyMappings.lsp_setup(client, bufnr)
     t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Goto Type Definition' },
     k = { '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Lsp Hoverdoc' },
     h = { '<cmd>lua require"lspsaga.provider".lsp_finder()<CR>', 'Lsp Finder' },
-    w = { '<cmd>HopWord<CR>', 'Hop to word' },
-    ['1'] = { '<cmd>HopChar1<CR>', 'Hop to single character' },
+    -- w = { '<cmd>HopWord<CR>', 'Hop to word' },
+    -- ['1'] = { '<cmd>HopChar1<CR>', 'Hop to single character' },
   }
 
   map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)

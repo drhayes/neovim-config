@@ -224,6 +224,16 @@ return packer.startup(function(use)
     branch = 'main'
   })
 
+  use({
+    'yuki-yano/fuzzy-motion.vim',
+    requires = {
+      'vim-denops/denops.vim'
+    },
+    config = function()
+      require('drhayes.fuzzy-motion')
+    end,
+  })
+
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
     require('packer').sync()
