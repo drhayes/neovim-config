@@ -223,6 +223,8 @@ return packer.startup(function(use)
     branch = 'main'
   })
 
+  use 'andymass/vim-matchup'
+
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
     require('packer').sync()
