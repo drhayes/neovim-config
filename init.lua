@@ -53,6 +53,8 @@ augroup('packer_user_config', {
   {'BufWritePost', 'plugins.lua', 'source', '<afile>', '| PackerCompile'}
 })
 
+a.nvim_command(':cabbrev h vert bo help')
+
  -- we are done setting stuff up
  a.nvim_command("silent! helptags ALL")
 

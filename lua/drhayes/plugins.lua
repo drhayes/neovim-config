@@ -225,6 +225,8 @@ return packer.startup(function(use)
 
   use 'andymass/vim-matchup'
 
+  use 'tpope/vim-unimpaired'
+
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
     require('packer').sync()
