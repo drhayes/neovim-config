@@ -83,6 +83,7 @@ function keyMappings.initKeymap()
 
   vim.api.nvim_set_keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
   vim.api.nvim_set_keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+  vim.api.nvim_set_keymap('', '<C-P>', "<cmd>lua require('telescope.builtin').git_files()<CR>", {})
 end
 
 function keyMappings.lsp_setup(client, bufnr)
@@ -137,8 +138,8 @@ function keyMappings.lsp_setup(client, bufnr)
     t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Goto Type Definition' },
     k = { '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Lsp Hoverdoc' },
     h = { '<cmd>lua require"lspsaga.provider".lsp_finder()<CR>', 'Lsp Finder' },
-    -- w = { '<cmd>HopWord<CR>', 'Hop to word' },
-    -- ['1'] = { '<cmd>HopChar1<CR>', 'Hop to single character' },
+    w = { '<cmd>HopWord<CR>', 'Hop to word' },
+    ['1'] = { '<cmd>HopChar1<CR>', 'Hop to single character' },
   }
 
   map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)

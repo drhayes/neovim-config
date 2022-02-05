@@ -207,13 +207,12 @@ return packer.startup(function(use)
 
   use 'editorconfig/editorconfig-vim'
 
-  -- use 'ggandor/lightspeed.nvim'
   use {
     'phaazon/hop.nvim',
     branch = 'v1', -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
-      require'hop'.setup({ keys = 'asdghklqwertyuiopzxcvbnmf' })
+      require('hop').setup({ keys = 'asdghklqwertyuiopzxcvbnmf' })
     end
   }
 
@@ -222,16 +221,6 @@ return packer.startup(function(use)
   use({
     'earthly/earthly.vim',
     branch = 'main'
-  })
-
-  use({
-    'yuki-yano/fuzzy-motion.vim',
-    requires = {
-      'vim-denops/denops.vim'
-    },
-    config = function()
-      require('drhayes.fuzzy-motion')
-    end,
   })
 
   -- Bootstrap if we don't already have it.
