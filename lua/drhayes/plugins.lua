@@ -62,21 +62,53 @@ return packer.startup(function(use)
     config = [[require('drhayes.nvimgps').setup()]],
   }
 
-  use({'folke/tokyonight.nvim',
-    --'mhartington/oceanic-next',
+  -- use({
+  --   'pineapplegiant/spaceduck',
+  --   branch = 'main',
+  --   config = function()
+  --     vim.cmd([[
+  --     if exists('+termguicolors')
+  --       let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  --       let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  --       set termguicolors
+  --     endif
+  --     ]])
+  --     vim.cmd([[colorscheme spaceduck]])
+  --   end,
+  -- })
+
+  -- use({
+  --   'lalitmee/cobalt2.nvim',
+  --   requires = 'tjdevries/colorbuddy.nvim',
+  -- })
+
+  use({
+    'mhartington/oceanic-next',
+    config = function()
+      vim.cmd[[syntax enable]]
+      vim.cmd[[let g:oceanic_next_terminal_bold = 1]]
+      vim.cmd[[let g:oceanic_next_terminal_italic = 1]]
+      vim.cmd[[colorscheme OceanicNext]]
+    end,
+  })
+
+  --use({--'folke/tokyonight.nvim',
+    -- 'mhartington/oceanic-next',
     --'rmehri01/onenord.nvim',
-    --'mhartington/oceanic-next',
     --'nanotech/jellybeans.vim',
     --'Pocco81/Catppuccino.nvim',
     -- 'GertjanReynaert/cobalt2-vim-theme',
     -- 'GlennLeo/cobalt2',
   --   requires = {'sheerun/vim-polyglot'},
-    config = function()
+    -- config = function()
       --vim.cmd[[colorscheme onenord]]
+      -- vim.cmd[[syntax enable]]
+      -- vim.cmd[[let g:oceanic_next_terminal_bold = 1]]
+      -- vim.cmd[[let g:oceanic_next_terminal_italic = 1]]
       -- vim.cmd[[colorscheme OceanicNext]]
-      require('drhayes.theme').setup()
-    end
-  })
+      -- require('drhayes.theme').setup()
+    -- end
+  -- })
   -- https://github.com/phanviet/vim-monokai-pro
   -- https://github.com/haishanh/night-owl.vim
   -- https://github.com/dracula/vim
@@ -132,9 +164,6 @@ return packer.startup(function(use)
     requires = {'nvim-lua/plenary.nvim'},
     config = "require('drhayes.gitsigns').setup()",
   }
-
-  -- Comments are good.
-  use 'preservim/nerdcommenter'
 
   -- Trailing whitespace generally sucks.
   use {

@@ -7,8 +7,8 @@ local diagnostic = require('galaxyline.providers.diagnostic')
 local conditions = require('galaxyline.condition')
 local vcs = require('galaxyline.providers.vcs')
 local u = require('drhayes.utils').u
-local theme = require('drhayes.theme')
-local colors = theme.colors
+-- local theme = require('drhayes.theme')
+local colors = require('galaxyline.highlighting')
 local gps = require('nvim-gps')
 local lsp_status = require('lsp-status')
 local lsp = vim.lsp
@@ -152,7 +152,7 @@ gls.left = {
     FileSize = {
       provider = 'FileSize',
       condition = buffer_not_empty and checkwidth,
-      highlight = {colors.diff.change, colors.none}
+      -- highlight = {colors.diff.change, colors.none}
     }
   },
   {
@@ -183,7 +183,7 @@ gls.left = {
       provider = 'DiffAdd',
       condition = checkwidth,
       icon = ' ',
-      highlight = {colors.diff.add, colors.none},
+      -- highlight = {colors.diff.add, colors.none},
     }
   },
   {
@@ -191,7 +191,7 @@ gls.left = {
       provider = 'DiffModified',
       condition = checkwidth,
       icon = ' ',
-      highlight = {colors.diff.change, colors.none},
+      -- highlight = {colors.diff.change, colors.none},
     }
   },
   {
@@ -199,7 +199,7 @@ gls.left = {
       provider = 'DiffRemove',
       condition = checkwidth,
       icon = ' ',
-      highlight = {colors.diff.remove,colors.none},
+      -- highlight = {colors.diff.remove,colors.none},
     }
   },
   {
