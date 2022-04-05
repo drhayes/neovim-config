@@ -82,13 +82,13 @@ return packer.startup(function(use)
   --   requires = 'tjdevries/colorbuddy.nvim',
   -- })
 
+  vim.g.monokaipro_filter = 'machine'
   use({
-    'mhartington/oceanic-next',
+    'https://gitlab.com/__tpb/monokai-pro.nvim',
+    -- 'mhartington/oceanic-next',
     config = function()
       vim.cmd[[syntax enable]]
-      vim.cmd[[let g:oceanic_next_terminal_bold = 1]]
-      vim.cmd[[let g:oceanic_next_terminal_italic = 1]]
-      vim.cmd[[colorscheme OceanicNext]]
+      vim.cmd[[colorscheme monokaipro]]
     end,
   })
 

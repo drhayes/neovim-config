@@ -34,7 +34,6 @@ function NvimTree.setup()
     hijack_netrw        = true,
     open_on_setup       = true,
     ignore_ft_on_setup  = { 'startify', 'outline' },
-    auto_close          = true,
     open_on_tab         = false,
     update_to_buf_dir   = {
       enable = true,
