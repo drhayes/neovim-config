@@ -146,6 +146,18 @@ function keyMappings.lsp_setup(client, bufnr)
   map("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev({popup_opts={focusable=false,border='rounded'}})<CR>", opts)
   map("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next({popup_opts={focusable=false,border='rounded'}})<CR>", opts)
 
+  -- Yank to the end of the line.
+  map('n', 'Y', 'yg$', opts)
+  -- When going through search results, center the tab/window/buffer/thing.
+  map('n', 'n', 'nzzzv', opts)
+  -- Do the same thing as above, but for backwards.
+  map('n', 'N', 'Nzzzv', opts)
+  -- Keep my cursor where it is when joining the next line.
+  map('n', 'J', 'mzJ`z', opts)
+  -- The next two move blocks around in visual block mode.
+  map('v', 'J', ":m '>+1<CR>gv=gv", opts)
+  map('v', 'K', ":m '<-2<CR>gv=gv", opts)
+
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
     keymap.c.f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format Document" }
