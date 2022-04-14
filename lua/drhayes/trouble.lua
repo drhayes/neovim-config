@@ -10,7 +10,7 @@ return {
       },
       auto_open = false,
       auto_close = false,
-      use_lsp_diagnostic_signs = true
+      use_diagnostic_signs = true
     }
   end
 }

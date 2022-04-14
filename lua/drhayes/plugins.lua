@@ -62,6 +62,27 @@ return packer.startup(function(use)
     config = [[require('drhayes.nvimgps').setup()]],
   }
 
+  --------------
+  -- THEME CHURN
+  --------------
+
+  -- vim.g.monokaipro_filter = 'machine'
+  -- use({
+  --   'https://gitlab.com/__tpb/monokai-pro.nvim',
+  --   config = function()
+  --     vim.cmd[[syntax enable]]
+  --     vim.cmd[[colorscheme monokaipro]]
+  --   end
+  -- })
+
+  use({
+    'catppuccin/nvim',
+    as = 'catppuccin',
+    config = function()
+      vim.cmd[[colorscheme catppuccin]]
+    end,
+  })
+
   -- use({
   --   'pineapplegiant/spaceduck',
   --   branch = 'main',
@@ -82,17 +103,28 @@ return packer.startup(function(use)
   --   requires = 'tjdevries/colorbuddy.nvim',
   -- })
 
-  vim.g.monokaipro_filter = 'machine'
-  use({
-    'https://gitlab.com/__tpb/monokai-pro.nvim',
-    -- 'mhartington/oceanic-next',
-    config = function()
-      vim.cmd[[syntax enable]]
-      vim.cmd[[colorscheme monokaipro]]
-    end,
-  })
+  -- vim.g.monokaipro_filter = 'machine'
+  -- use({
+  --   'https://gitlab.com/__tpb/monokai-pro.nvim',
+  --   -- 'mhartington/oceanic-next',
+  --   config = function()
+  --     vim.cmd[[syntax enable]]
+  --     vim.cmd[[colorscheme monokaipro]]
+  --   end,
+  -- })
 
-  --use({--'folke/tokyonight.nvim',
+  -- use({
+  --   'folke/tokyonight.nvim',
+  --   config = function()
+  --     vim.cmd[[colorscheme tokyonight]]
+  --   end
+  -- })
+
+  -- https://github.com/phanviet/vim-monokai-pro
+  -- https://github.com/haishanh/night-owl.vim
+  -- https://github.com/dracula/vim
+
+
     -- 'mhartington/oceanic-next',
     --'rmehri01/onenord.nvim',
     --'nanotech/jellybeans.vim',
@@ -101,6 +133,7 @@ return packer.startup(function(use)
     -- 'GlennLeo/cobalt2',
   --   requires = {'sheerun/vim-polyglot'},
     -- config = function()
+    --   vim.cmd[[colorscheme tokyonight]]
       --vim.cmd[[colorscheme onenord]]
       -- vim.cmd[[syntax enable]]
       -- vim.cmd[[let g:oceanic_next_terminal_bold = 1]]
@@ -225,14 +258,14 @@ return packer.startup(function(use)
   use 'tpope/vim-surround'
 
   -- Who doesn't want a tree view of their filesystem?
-  use { 'kyazdani42/nvim-tree.lua',
+  -- use { 'kyazdani42/nvim-tree.lua',
     -- commit = "f1f1488",
-    config = function()
-      require('drhayes.nvim-tree').setup()
-    end,
+    -- config = function()
+      -- require('drhayes.nvim-tree').setup()
+    -- end,
     --cmd = {"NvimTreeFindFile", "NvimTreeToggle"},
     --opt = true
-  }
+  -- }
 
   use 'editorconfig/editorconfig-vim'
 

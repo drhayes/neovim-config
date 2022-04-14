@@ -53,9 +53,12 @@ function M.setup()
         vim.fn["vsnip#anonymous"](args.body)
       end,
     },
-    documentation = {
-      border = 'rounded',
+    window = {
+      documentation = cmp.config.window.bordered(),
     },
+    -- documentation = {
+    --   border = 'rounded',
+    -- },
     sources = {
       { name = 'nvim_lua' },
       { name = 'vsnip' },

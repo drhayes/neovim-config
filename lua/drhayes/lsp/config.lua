@@ -24,14 +24,14 @@ local language_formatters = {
 
 local function lua_cmd()
   local home = vim.fn.expand("$HOME")
-  local build = home .. "/src/lua-language-server"
+  local build = home .. "/bin/lua-language-server"
   local bin_location = ""
-  if jit.os == 'OSX' then
-    bin_location = 'macOS'
-  elseif jit.os == 'Linux' then
-    bin_location = 'Linux'
-  end
-  local bin = build .. "/bin/" .. bin_location .. "/lua-language-server"
+  -- if jit.os == 'OSX' then
+  --   bin_location = 'macOS'
+  -- elseif jit.os == 'Linux' then
+  --   bin_location = 'Linux'
+  -- end
+  local bin = build .. "/bin/lua-language-server"
   return {bin, "-E", build .. "/main.lua"}
 end
 

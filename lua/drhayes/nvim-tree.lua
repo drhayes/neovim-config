@@ -3,7 +3,7 @@ local g = vim.g
 local NvimTree = {}
 
 function NvimTree.setup()
-  g.nvim_tree_indent_markers = 1
+  -- g.nvim_tree_indent_markers = 1
   g.nvim_tree_git_hl = 1
   g.nvim_tree_root_folder_modifier = ':~'
   g.nvim_tree_show_icons = {

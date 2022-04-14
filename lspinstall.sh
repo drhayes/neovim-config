@@ -84,10 +84,10 @@ install_lsp_servers_go() {
       # this is needed because go get is bad
       set -x
       set +e
-      GO111MODULE=on go get golang.org/x/tools/gopls@latest
+      GO111MODULE=on go install golang.org/x/tools/gopls@latest
     )
     echo "Installing efm general purpose ls"
-    go get github.com/mattn/efm-langserver
+    go install github.com/mattn/efm-langserver@latest
   )
 }
 
