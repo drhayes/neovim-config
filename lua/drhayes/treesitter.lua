@@ -1,7 +1,9 @@
-local M={}
+local treesitter = {}
 
-function M.setup()
-  local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+function treesitter.setup()
+  local parsers = require 'nvim-treesitter.parsers'
+  local parser_configs = parsers.get_parser_configs()
+
   parser_configs.http = {
     install_info = {
       url = "https://github.com/NTBBloodbath/tree-sitter-http",
@@ -11,7 +13,8 @@ function M.setup()
   }
 
   require('nvim-treesitter.configs').setup({
-    ensure_installed = "all",
+    ensure_installed = 'all',
+
     textobjects = {
       select = {
         enable = true,
@@ -27,26 +30,33 @@ function M.setup()
         }
       },
     },
+
     indent = {
       enable = true
     },
+
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = true,
       disable = {},
     },
+
+    -- Rainbow paren matching.
     rainbow = {
       enable = true,
       disable = {'bash'},
     },
+
     refactor = {
       highlight_definitions = { enable = true },
       highlight_current_scope = { enable = false },
     },
+
     autotag = {
       enable = true
-    }
+    },
+
   })
 end
 
-return M
+return treesitter

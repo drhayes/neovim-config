@@ -25,13 +25,21 @@ local packer = require 'packer'
 -- them into the environment.
 return packer.startup(function(use)
   use('wbthomason/packer.nvim')
-  use('mhinz/vim-startify')
 
-  -- fuzzy stuff
+  use {
+    'mhinz/vim-startify',
+    config = function()
+      require('drhayes.startify').setup()
+    end,
+  }
+
+  -- Telescope.
   use {
     'nvim-telescope/telescope.nvim',
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
-    config = [[require 'drhayes.telescope']],
+    config = function()
+      require 'drhayes.telescope'
+    end,
   }
   use('nvim-telescope/telescope-fzy-native.nvim')
   use('nvim-telescope/telescope-fzf-writer.nvim')
@@ -40,14 +48,19 @@ return packer.startup(function(use)
   use('nvim-telescope/telescope-symbols.nvim')
   use 'nvim-telescope/telescope-dap.nvim'
   use('cwebster2/github-coauthors.nvim')
+
+  -- fzf.
   use {'junegunn/fzf', run = './install --all'}
   use 'junegunn/fzf.vim'
 
-  -- Syntax
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate',
-    config = [[require('drhayes.treesitter').setup()]]
+  -- Treesitter.
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('drhayes.treesitter').setup()
+    end,
   }
-  use 'nvim-treesitter/playground'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use {
@@ -59,42 +72,20 @@ return packer.startup(function(use)
   use {
     'SmiteshP/nvim-gps',
     requires = {'nvim-treesitter/nvim-treesitter'},
-    config = [[require('drhayes.nvimgps').setup()]],
+    config = function()
+      require('drhayes.nvimgps').setup()
+    end,
   }
 
   --------------
   -- THEME CHURN
   --------------
 
-  -- vim.g.monokaipro_filter = 'machine'
-  -- use({
-  --   'https://gitlab.com/__tpb/monokai-pro.nvim',
-  --   config = function()
-  --     vim.cmd[[syntax enable]]
-  --     vim.cmd[[colorscheme monokaipro]]
-  --   end
-  -- })
-
   -- use({
   --   'catppuccin/nvim',
   --   as = 'catppuccin',
   --   config = function()
   --     vim.cmd[[colorscheme catppuccin]]
-  --   end,
-  -- })
-
-  -- use({
-  --   'pineapplegiant/spaceduck',
-  --   branch = 'main',
-  --   config = function()
-  --     vim.cmd([[
-  --     if exists('+termguicolors')
-  --       let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  --       let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  --       set termguicolors
-  --     endif
-  --     ]])
-  --     vim.cmd([[colorscheme spaceduck]])
   --   end,
   -- })
 
@@ -119,11 +110,6 @@ return packer.startup(function(use)
       vim.cmd[[colorscheme tokyonight]]
     end
   })
-
-  -- https://github.com/phanviet/vim-monokai-pro
-  -- https://github.com/haishanh/night-owl.vim
-  -- https://github.com/dracula/vim
-
 
     -- 'mhartington/oceanic-next',
     --'rmehri01/onenord.nvim',
@@ -154,17 +140,20 @@ return packer.startup(function(use)
   use 'theHamsta/nvim-dap-virtual-text'
   use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
 
-  -- LSP stuff
-  use 'neovim/nvim-lspconfig'
-  use 'folke/lua-dev.nvim'
-  use 'kosayoda/nvim-lightbulb'
-  use('tami5/lspsaga.nvim')
-  use {'nvim-lua/lsp-status.nvim'}
-  use{'ray-x/lsp_signature.nvim'}
+  -- LSP.
   use {
-    'folke/lsp-trouble.nvim',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = [[require('drhayes.trouble').setup()]],
+    'neovim/nvim-lspconfig',
+    'williamboman/nvim-lsp-installer',
+  }
+  use { "folke/lua-dev.nvim" }
+  -- use { "kosayoda/nvim-lightbulb" }
+  use { "tami5/lspsaga.nvim" }
+  use { "nvim-lua/lsp-status.nvim" }
+  use { "ray-x/lsp_signature.nvim" }
+  use { "jose-elias-alvarez/null-ls.nvim" }
+  use { "folke/lsp-trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = "require('drhayes.trouble').setup()",
   }
 
   -- What keys am I pressing?
