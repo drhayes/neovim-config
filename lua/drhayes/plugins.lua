@@ -75,13 +75,13 @@ return packer.startup(function(use)
   --   end
   -- })
 
-  use({
-    'catppuccin/nvim',
-    as = 'catppuccin',
-    config = function()
-      vim.cmd[[colorscheme catppuccin]]
-    end,
-  })
+  -- use({
+  --   'catppuccin/nvim',
+  --   as = 'catppuccin',
+  --   config = function()
+  --     vim.cmd[[colorscheme catppuccin]]
+  --   end,
+  -- })
 
   -- use({
   --   'pineapplegiant/spaceduck',
@@ -113,12 +113,12 @@ return packer.startup(function(use)
   --   end,
   -- })
 
-  -- use({
-  --   'folke/tokyonight.nvim',
-  --   config = function()
-  --     vim.cmd[[colorscheme tokyonight]]
-  --   end
-  -- })
+  use({
+    'folke/tokyonight.nvim',
+    config = function()
+      vim.cmd[[colorscheme tokyonight]]
+    end
+  })
 
   -- https://github.com/phanviet/vim-monokai-pro
   -- https://github.com/haishanh/night-owl.vim
