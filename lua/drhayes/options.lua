@@ -1,12 +1,18 @@
 local opt = vim.opt
 
+-- These come in from the global vim object.
+local a = vim.api
+local g = vim.g
 local exists = vim.fn.exists
 local isdirectory = vim.fn.isdirectory
 local nvim_command = vim.api.nvim_command
 
 local HOME_DIR = vim.fn.expand('$HOME')
 
--- local augroup = require('utils').augroup
+a.nvim_command('set nocompatible')
+
+g.mapleader = ' '
+g.maplocalleader = ','
 
 opt.autoindent = true
 opt.autoread = true
