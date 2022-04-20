@@ -104,10 +104,15 @@ return packer.startup(function(use)
   --   end,
   -- })
 
+  vim.g.tokyonight_style = 'storm'
+  vim.g.tokyonight_colors = {
+    comment = '#8080a0',
+  }
+
   use({
     'folke/tokyonight.nvim',
     config = function()
-      vim.cmd[[colorscheme tokyonight]]
+      require('drhayes.colors').setup()
     end
   })
 
