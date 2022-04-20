@@ -14,7 +14,7 @@ a.nvim_command('set nocompatible')
 g.mapleader = ' '
 g.maplocalleader = ','
 
-opt.autoindent = true
+opt.autoindent = false
 opt.autoread = true
 -- Just save all the damn time.
 opt.autowrite = true

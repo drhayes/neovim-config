@@ -132,6 +132,9 @@ return packer.startup(function(use)
   -- https://github.com/haishanh/night-owl.vim
   -- https://github.com/dracula/vim
 
+  -- Golang.
+  use 'fatih/vim-go'
+
   -- Github issue stuff.
   use 'pwntester/octo.nvim'
 
@@ -277,6 +280,18 @@ return packer.startup(function(use)
   use 'andymass/vim-matchup'
 
   use 'tpope/vim-unimpaired'
+
+  use {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
 
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
