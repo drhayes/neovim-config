@@ -1,4 +1,5 @@
 require 'drhayes.options'
+require 'drhayes.augroup'
 require 'drhayes.plugins'
 
 -- Do all our key mappings.
