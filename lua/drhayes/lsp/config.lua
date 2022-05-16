@@ -1,9 +1,10 @@
 local M = {}
 
-local prettier = require "drhayes.lsp.efm.prettier"
-local eslint = require "drhayes.lsp.efm.eslint"
-local hadolint = require "drhayes.lsp.efm.hadolint"
-local lsp_status = require "lsp-status"
+local prettier = require 'drhayes.lsp.efm.prettier'
+local eslint = require 'drhayes.lsp.efm.eslint'
+local hadolint = require 'drhayes.lsp.efm.hadolint'
+local lsp_status = require 'lsp-status'
+local nvim_lsp = require 'lspconfig'
 
 local language_formatters = {
   typescript = {prettier, eslint},
@@ -41,7 +42,9 @@ M.servers = {
   bashls = {},
   -- rust-tools configures this
   -- rust_analyzer = {},
-  tsserver = {},
+  tsserver = {
+    root_dir = nvim_lsp.util.root_pattern("package.json"),
+  },
   vuels = {},
   svelte = {},
   gopls = {},
@@ -100,6 +103,7 @@ M.servers = {
       languages = language_formatters
     }
   },
+  denols = {},
   -- coffeescript = {
   --   cmd = { bin_name, '--stdio' },
   --   filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
