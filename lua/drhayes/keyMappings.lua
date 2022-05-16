@@ -4,6 +4,7 @@ local bufferMaps =  {
   name = "+buffer",
   b = { ':e#<CR>', "Last Buffer"},
   d = { '<Cmd>BufferLineSortByDirectory<CR>', "Order by Dir" },
+  f = { '<Cmd>Telescope current_buffer_fuzzy_find<CR>', 'Fuzzy find in current buffer' },
   g = { "<cmd>BufferLinePick<cr>", "Goto Buffer" },
   l = { '<Cmd>BufferLineSortByDirectory<CR>', "Order by Lang" },
   n = { "<Cmd>BufferLineCycleNext<CR>", "Next Buffer" },
@@ -17,8 +18,8 @@ local fileMaps = {
   g = { "<cmd>lua require('telescope.builtin').git_files()<CR>", "Find Git Files" },
   n = { "<cmd>enew<CR>", "New File" },
   r = { "<cmd>lua require('telescope.builtin').oldfiles()<CR>", "Recent Files" },
-  s = { ":SymbolsOutline<CR>", "Symbols" },
-  t = { "<cmd>NvimTreeToggle<cr>", "NvimTree" },
+  -- s = { ":SymbolsOutline<CR>", "Symbols" },
+  -- t = { "<cmd>NvimTreeToggle<cr>", "NvimTree" },
 }
 
 local searchMaps = {
@@ -30,6 +31,22 @@ local searchMaps = {
   r = { "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", "Document Symbols" },
   s = { "<cmd>lua require('telescope.builtin').spell_suggest()<CR>", "Spelling" },
   -- a = { ':Ag<cr>', 'Silver Searcher' },
+}
+
+local gotoKeymap = {
+  name = '+goto',
+  r = { '<cmd>Telescope lsp_references<cr>', 'References' },
+  R = { '<cmd>LspTrouble lsp_references<cr>', 'Trouble References' },
+  D = { '<cmd>lua require"lspsaga.provider".preview_definition()<CR>', 'Peek Definition' },
+  d = { '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
+  s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature Help' },
+  I = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Goto Implementation' },
+  -- I = { '<Cmd>lua vim.lsp.buf.declaration()<CR>', 'Goto Declaration' },
+  t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Goto Type Definition' },
+  k = { '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Lsp Hoverdoc' },
+  h = { '<cmd>lua require"lspsaga.provider".lsp_finder()<CR>', 'Lsp Finder' },
+  w = { '<cmd>HopWord<CR>', 'Hop to word' },
+  ['1'] = { '<cmd>HopChar1<CR>', 'Hop to single character' },
 }
 
 function keyMappings.initKeymap()
@@ -84,22 +101,6 @@ function keyMappings.lsp_setup(client, bufnr)
       name = "+code",
       a = { ":<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>", "Code Action" }
     }
-  }
-
-  local gotoKeymap = {
-    name = '+goto',
-    r = { '<cmd>Telescope lsp_references<cr>', 'References' },
-    R = { '<cmd>LspTrouble lsp_references<cr>', 'Trouble References' },
-    D = { '<cmd>lua require"lspsaga.provider".preview_definition()<CR>', 'Peek Definition' },
-    d = { '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
-    s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature Help' },
-    I = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Goto Implementation' },
-    -- I = { '<Cmd>lua vim.lsp.buf.declaration()<CR>', 'Goto Declaration' },
-    t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Goto Type Definition' },
-    k = { '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Lsp Hoverdoc' },
-    h = { '<cmd>lua require"lspsaga.provider".lsp_finder()<CR>', 'Lsp Finder' },
-    w = { '<cmd>HopWord<CR>', 'Hop to word' },
-    ['1'] = { '<cmd>HopChar1<CR>', 'Hop to single character' },
   }
 
   local function map(mode, key, result, opts)

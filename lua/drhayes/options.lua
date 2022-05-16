@@ -14,6 +14,8 @@ a.nvim_command('set nocompatible')
 g.mapleader = ' '
 g.maplocalleader = ','
 
+g.neovide_cursor_vfx_mode = 'railgun'
+
 opt.autoindent = false
 opt.autoread = true
 -- Just save all the damn time.
@@ -48,7 +50,7 @@ opt.formatoptions = opt.formatoptions
   + 'n' -- Indent past the formatlistpat, not underneath it.
   + 'j' -- Auto-remove comments if possible.
   - '2' -- I'm not in gradeschool anymore
-opt.guifont = 'MonoLisa:12'
+opt.guifont = 'Inconsolata:h12'
 opt.hidden = true
 opt.hlsearch = true
 opt.ignorecase = true

@@ -1,7 +1,9 @@
 local actions = require 'telescope.actions'
 local trouble = require 'trouble.providers.telescope'
 
-require("telescope").setup {
+local telescope = require 'telescope'
+
+telescope.setup {
   defaults = {
     mappings = {
 
@@ -95,8 +97,8 @@ require("telescope").setup {
 }
 
 -- the fzy extension changes the behavior of telescope in a way i don't like
-require('telescope').load_extension('fzy_native')
-require('telescope').load_extension('octo')
-require('telescope').load_extension('githubcoauthors')
-require('telescope').load_extension('dap')
+telescope.load_extension('fzy_native')
+telescope.load_extension('octo')
+telescope.load_extension('githubcoauthors')
+telescope.load_extension('dap')
 

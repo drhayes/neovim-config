@@ -16,7 +16,7 @@ augroup('vimrc-main', {
   {'FileType', 'yaml', 'setlocal ts=2 sts=2 sw=2 expandtab'},
 
   -- Format Go files on save.
-  {'FileType', 'go', 'BufWritePre *.go :GoFmt', 'BufWritePre *.go :GoImports'}
+  -- {'FileType', 'go', 'BufWritePre *.go :GoFmt', 'BufWritePre *.go :GoImports'}
 })
 
 augroup('packer_user_config', {
