@@ -43,7 +43,7 @@ M.servers = {
   -- rust-tools configures this
   -- rust_analyzer = {},
   tsserver = {
-    root_dir = nvim_lsp.util.root_pattern("package.json"),
+    root_dir = nvim_lsp.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
   },
   vuels = {},
   svelte = {},
@@ -103,7 +103,9 @@ M.servers = {
       languages = language_formatters
     }
   },
-  denols = {},
+  denols = {
+    root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc", "tsconfig.json", ".git")
+  },
   -- coffeescript = {
   --   cmd = { bin_name, '--stdio' },
   --   filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
