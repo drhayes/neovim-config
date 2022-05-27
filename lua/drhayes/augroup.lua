@@ -23,3 +23,6 @@ augroup('packer_user_config', {
   {'BufWritePost', 'plugins.lua', 'source', '<afile>', '| PackerCompile'}
 })
 
+augroup('custom_filetypes', {
+  {'BufRead,BufNewFile', '*.njk', 'setfiletype', 'njk'},
+});

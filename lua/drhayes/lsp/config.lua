@@ -38,7 +38,9 @@ end
 
 M.servers = {
   pyright = {},
-  html = {},
+  html = {
+    filetypes = {"html", "nunjucks", "njk"},
+  },
   bashls = {},
   -- rust-tools configures this
   -- rust_analyzer = {},
@@ -106,6 +108,7 @@ M.servers = {
   denols = {
     root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc", "tsconfig.json", ".git")
   },
+  tailwindcss = {},
   -- coffeescript = {
   --   cmd = { bin_name, '--stdio' },
   --   filetypes = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },

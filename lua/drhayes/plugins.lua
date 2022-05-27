@@ -298,6 +298,10 @@ return packer.startup(function(use)
     end
   }
 
+  use('nathom/filetype.nvim')
+
+  use('lepture/vim-jinja')
+
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then
     require('packer').sync()
