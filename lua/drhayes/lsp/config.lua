@@ -45,6 +45,7 @@ M.servers = {
   -- rust-tools configures this
   -- rust_analyzer = {},
   tsserver = {
+    commandPath = "/home/drhayes/.asdf/shims/tsserver",
     root_dir = nvim_lsp.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
   },
   vuels = {},
@@ -105,9 +106,9 @@ M.servers = {
       languages = language_formatters
     }
   },
-  denols = {
-    root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc", "tsconfig.json", ".git")
-  },
+  -- denols = {
+  --   root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc", "tsconfig.json", ".git")
+  -- },
   tailwindcss = {},
   -- coffeescript = {
   --   cmd = { bin_name, '--stdio' },
