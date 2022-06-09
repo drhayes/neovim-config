@@ -82,6 +82,14 @@ return packer.startup(function(use)
   --------------
 
   -- use({
+  --   'mangeshrex/everblush.vim',
+  --   config = function()
+  --     vim.cmd[[let g:everblushNR=1]]
+  --     vim.cmd[[colorscheme everblush]]
+  --   end,
+  -- })
+
+  -- use({
   --   'catppuccin/nvim',
   --   as = 'catppuccin',
   --   config = function()
@@ -183,10 +191,17 @@ return packer.startup(function(use)
 
   -- Things at the bottom.
   use {
-    'NTBBloodbath/galaxyline.nvim',
-    branch='main',
-    requires = {'kyazdani42/nvim-web-devicons'}
+    'feline-nvim/feline.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function()
+      require('feline').setup()
+    end,
   }
+  -- use {
+  --   'NTBBloodbath/galaxyline.nvim',
+  --   branch='main',
+  --   requires = {'kyazdani42/nvim-web-devicons'}
+  -- }
 
   -- Things on the left side.
   use {
