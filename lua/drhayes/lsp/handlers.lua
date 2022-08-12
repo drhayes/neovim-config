@@ -34,10 +34,12 @@ function M.setup()
   handlers["textDocument/publishDiagnostics"] = lsp.with(
     lsp.diagnostic.on_publish_diagnostics, {
       underline = true,
-      virtual_text = {
-        spacing = 4,
-        prefix = '←',
-      },
+      -- Disable virtual_text since it's redundant due to lsp_lines.
+      virtual_text = false,
+      -- virtual_text = {
+      --   spacing = 4,
+      --   prefix = '←',
+      -- },
       signs = true,
       update_in_insert = false,
     }

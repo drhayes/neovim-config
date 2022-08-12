@@ -279,7 +279,7 @@ return packer.startup(function(use)
     --opt = true
   -- }
 
-  use 'editorconfig/editorconfig-vim'
+  use 'gpanders/editorconfig.nvim'
 
   use {
     'phaazon/hop.nvim',
@@ -302,10 +302,10 @@ return packer.startup(function(use)
   use 'tpope/vim-unimpaired'
 
   use {
-    "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    'folke/todo-comments.nvim',
+    requires = 'nvim-lua/plenary.nvim',
     config = function()
-      require("todo-comments").setup {
+      require('todo-comments').setup {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
@@ -316,6 +316,18 @@ return packer.startup(function(use)
   use('nathom/filetype.nvim')
 
   use('lepture/vim-jinja')
+
+  use({
+    'preservim/vim-markdown',
+    requires = 'godlygeek/tabular',
+  })
+
+  use({
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    config = function()
+      require('lsp_lines').setup()
+    end,
+  })
 
   -- Bootstrap if we don't already have it.
   if packer_bootstrap then

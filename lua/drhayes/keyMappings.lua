@@ -18,6 +18,8 @@ local fileMaps = {
   g = { "<cmd>lua require('telescope.builtin').git_files()<CR>", "Find Git Files" },
   n = { "<cmd>enew<CR>", "New File" },
   r = { "<cmd>lua require('telescope.builtin').oldfiles()<CR>", "Recent Files" },
+  c = { "<cmd>:let @+=@%<CR>", "Copy relative filename to clipboard"},
+  z = { "<cmd>redir @*> | echon join([expand('%'),  line('.')], ':') | redir END<CR>", "Copy file:line" },
   -- s = { ":SymbolsOutline<CR>", "Symbols" },
   -- t = { "<cmd>NvimTreeToggle<cr>", "NvimTree" },
 }
@@ -136,6 +138,8 @@ function keyMappings.lsp_setup(client, bufnr)
   -- The next two move blocks around in visual block mode.
   map('v', 'J', ":m '>+1<CR>gv=gv", opts)
   map('v', 'K', ":m '<-2<CR>gv=gv", opts)
+  -- Put the current relative filename in the clipboard.
+  map('n', '<leader>z', ":redir @*> | echon join([expand('%'),  line('.')], ':') | redir END<CR>", opts)
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then

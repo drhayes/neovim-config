@@ -18,3 +18,7 @@ a.nvim_command(':cabbrev h vert bo help')
 -- we are done setting stuff up
 a.nvim_command("silent! helptags ALL")
 
+-- Disable virtual_text since it's redundant due to lsp_lines.
+vim.diagnostic.config({
+  virtual_text = false,
+})
