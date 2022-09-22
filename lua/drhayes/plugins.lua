@@ -158,8 +158,13 @@ return packer.startup(function(use)
 
   -- LSP.
   use {
-    'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
+    requires = 'neovim/nvim-lspconfig',
+    config = function()
+      require('nvim-lsp-installer').setup({
+        automatic_installation = true,
+      })
+    end,
   }
   use { "folke/lua-dev.nvim" }
   -- use { "kosayoda/nvim-lightbulb" }

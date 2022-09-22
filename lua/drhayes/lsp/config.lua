@@ -23,18 +23,18 @@ local language_formatters = {
   dockerfile = {hadolint},
 }
 
-local function lua_cmd()
-  local home = vim.fn.expand("$HOME")
-  local build = home .. "/bin/lua-language-server"
-  local bin_location = ""
-  -- if jit.os == 'OSX' then
-  --   bin_location = 'macOS'
-  -- elseif jit.os == 'Linux' then
-  --   bin_location = 'Linux'
-  -- end
-  local bin = build .. "/bin/lua-language-server"
-  return {bin, "-E", build .. "/main.lua"}
-end
+-- local function lua_cmd()
+--   local home = vim.fn.expand("$HOME")
+--   local build = home .. "/bin/lua-language-server"
+--   local bin_location = ""
+--   -- if jit.os == 'OSX' then
+--   --   bin_location = 'macOS'
+--   -- elseif jit.os == 'Linux' then
+--   --   bin_location = 'Linux'
+--   -- end
+--   local bin = build .. "/bin/lua-language-server"
+--   return {bin, "-E", build .. "/main.lua"}
+-- end
 
 M.servers = {
   pyright = {},
@@ -74,7 +74,7 @@ M.servers = {
   jdtls = {},
   sumneko_lua = require("lua-dev").setup({
     lspconfig = {
-      cmd = lua_cmd(),
+      -- cmd = lua_cmd(),
       settings = {
         Lua = {
           diagnostics = {
