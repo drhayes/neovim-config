@@ -164,6 +164,7 @@ return packer.startup(function(use)
       require('nvim-lsp-installer').setup({
         automatic_installation = true,
       })
+      require('drhayes.lsp').setup()
     end,
   }
   use { "folke/lua-dev.nvim" }
@@ -237,7 +238,7 @@ return packer.startup(function(use)
   use {
     'hrsh7th/nvim-cmp',
     config = function()
-      require('drhayes.lsp').setup()
+      -- require('drhayes.lsp').setup()
       require('drhayes.completion').setup()
     end,
     requires = {
@@ -252,6 +253,7 @@ return packer.startup(function(use)
       'hrsh7th/cmp-vsnip',
       -- 'Saecki/crates.nvim',
       'f3fora/cmp-spell',
+      'williamboman/nvim-lsp-installer',
     },
   }
 
