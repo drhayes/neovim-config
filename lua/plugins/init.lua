@@ -30,6 +30,11 @@ return {
     },
   },
 
+  'tpope/vim-surround',
+  'gpanders/editorconfig.nvim',
+  'fladson/vim-kitty',
+  'tpope/vim-repeat',
+
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
