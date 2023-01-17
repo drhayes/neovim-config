@@ -40,19 +40,30 @@ local visualKeys = {
   K = { ":m '<-2<CR>gv=gv", 'Move selected up' },
 }
 
+local lspKeys = {
+  l = {
+    name = '+LSP',
+    r = { vim.lsp.buf.rename, 'Rename' },
+    a = { vim.lsp.buf.code_action, 'Code action' },
+    d = { vim.lsp.buf.type_definition, 'Type definition' },
+    s = { require('telescope.builtin').lsp_document_symbols, 'Document symbols' },
+    S = { require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace symbols' },
+  },
+}
+
 return {
-	whichKeyRegistrations = {
-		b = {
-			name = '+Buffer',
-			b = { ':e#<CR>', "Last Buffer" },
-			d = { '<Cmd>BufferLineSortByDirectory<CR>', "Order by Dir" },
-			f = { '<Cmd>Telescope current_buffer_fuzzy_find<CR>', 'Fuzzy find in current buffer' },
-			g = { "<cmd>BufferLinePick<cr>", "Goto Buffer" },
-			l = { '<Cmd>BufferLineSortByDirectory<CR>', "Order by Lang" },
-			n = { "<Cmd>BufferLineCycleNext<CR>", "Next Buffer" },
-			p = { "<Cmd>BufferLineCyclePrev<CR>", "Previous Buffer" },
-			s = { "<cmd>lua require('telescope.builtin').buffers()<CR>", "Buffers" },
-		},
+  whichKeyRegistrations = {
+    b = {
+      name = '+Buffer',
+      b = { ':e#<CR>', "Last Buffer" },
+      d = { '<Cmd>BufferLineSortByDirectory<CR>', "Order by Dir" },
+      f = { '<Cmd>Telescope current_buffer_fuzzy_find<CR>', 'Fuzzy find in current buffer' },
+      g = { "<cmd>BufferLinePick<cr>", "Goto Buffer" },
+      l = { '<Cmd>BufferLineSortByDirectory<CR>', "Order by Lang" },
+      n = { "<Cmd>BufferLineCycleNext<CR>", "Next Buffer" },
+      p = { "<Cmd>BufferLineCyclePrev<CR>", "Previous Buffer" },
+      s = { "<cmd>lua require('telescope.builtin').buffers()<CR>", "Buffers" },
+    },
 
     d = {
       name = '+Diagnostics',
@@ -62,51 +73,52 @@ return {
       q = { vim.diagnostic.setloclist, 'Add diagnostics to loclist' },
     },
 
-		g = {
-			name = '+Goto',
-			d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
-			s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature Help' },
-			I = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Goto Implementation' },
-			t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Goto Type Definition' },
-			k = { '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Lsp Hoverdoc' },
-			w = { '<cmd>HopWord<CR>', 'Hop to word' },
-			['1'] = { '<cmd>HopChar1<CR>', 'Hop to single character' },
-			r = { '<cmd>OpenInGHRepo<CR>', 'Open the GitHub repo for this file' },
-			l = { '<cmd>OpenInGHFile<CR>', 'Open this file on GitHub at this line' },
-			D = { '<cmd>Glance references<CR>', 'Glance LSP definitions' },
-			R = { '<cmd>Glance references<CR>', 'Glance LSP references' },
-			Y = { '<cmd>Glance type_definitions<CR>', 'Glance LSP type definitions' },
-			M = { '<cmd>Glance implementations<CR>', 'Glance LSP implementations' },
-		},
+    g = {
+      name = '+Goto',
+      d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
+      s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature Help' },
+      I = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Goto Implementation' },
+      t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Goto Type Definition' },
+      k = { '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Lsp Hoverdoc' },
+      w = { '<cmd>HopWord<CR>', 'Hop to word' },
+      ['1'] = { '<cmd>HopChar1<CR>', 'Hop to single character' },
+      r = { '<cmd>OpenInGHRepo<CR>', 'Open the GitHub repo for this file' },
+      l = { '<cmd>OpenInGHFile<CR>', 'Open this file on GitHub at this line' },
+      D = { '<cmd>Glance definitions<CR>', 'Glance LSP definitions' },
+      R = { '<cmd>Glance references<CR>', 'Glance LSP references' },
+      Y = { '<cmd>Glance type_definitions<CR>', 'Glance LSP type definitions' },
+      M = { '<cmd>Glance implementations<CR>', 'Glance LSP implementations' },
+    },
 
-		t = {
-			name = '+Trouble',
-			d = { '<cmd>Trouble document_diagnostics<cr>', 'Diagnostics' },
-			f = { '<cmd>Trouble lsp_definitions<cr>', 'Definitions' },
-			l = { '<cmd>Trouble loclist<cr>', 'LocationList' },
-			q = { '<cmd>Trouble quickfix<cr>', 'QuickFix' },
-			r = { '<cmd>Trouble lsp_references<cr>', 'References' },
-			w = { '<cmd>Trouble workspace_diagnostics<cr>', 'Workspace Diagnostics' },
-		},
+    t = {
+      name = '+Trouble',
+      d = { '<cmd>Trouble document_diagnostics<cr>', 'Diagnostics' },
+      f = { '<cmd>Trouble lsp_definitions<cr>', 'Definitions' },
+      l = { '<cmd>Trouble loclist<cr>', 'LocationList' },
+      q = { '<cmd>Trouble quickfix<cr>', 'QuickFix' },
+      r = { '<cmd>Trouble lsp_references<cr>', 'References' },
+      w = { '<cmd>Trouble workspace_diagnostics<cr>', 'Workspace Diagnostics' },
+    },
 
-		s = {
-			name = '+Searching',
-			b = { '<cmd>Telescope buffers<cr>', '[S]earch [B]uffers' },
-			d = { '<cmd>Telescope diagnostics<cr>', '[S]earch [D]iagnostics' },
-			f = { '<cmd>Telescope find_files<cr>', '[S]earch [F]iles' },
-			g = { '<cmd>Telescope live_grep<cr>', '[S]earch by [G]rep' },
-			h = { '<cmd>Telescope help_tags<cr>', '[S]earch [H]elp' },
-			k = { '<cmd>Telescope keymaps<cr>', '[S]earch [K]eymaps' },
-      m = { '<cmd>Telescope harpoon marks<cr>', '[S]earch harpoon [M]arks' },
-			n = { '<cmd>Telescope notify<cr>', '[S]earch [N]otify' },
-			w = { '<cmd>Telescope grep_string<cr>', '[S]earch current [W]ord' },
-		},
-	},
+    s = {
+      name = '+Searching',
+      b = { '<cmd>Telescope buffers<cr>', '[B]uffers' },
+      d = { '<cmd>Telescope diagnostics<cr>', '[D]iagnostics' },
+      f = { '<cmd>Telescope find_files<cr>', '[F]iles' },
+      g = { '<cmd>Telescope live_grep<cr>', '[G]rep' },
+      h = { '<cmd>Telescope help_tags<cr>', '[H]elp' },
+      k = { '<cmd>Telescope keymaps<cr>', '[K]eymaps' },
+      m = { '<cmd>Telescope harpoon marks<cr>', 'Harpoon [M]arks' },
+      n = { '<cmd>Telescope notify<cr>', '[N]otify' },
+      r = { '<cmd>Telescope lsp_references<cr>', 'LSP [R]eferences' },
+      w = { '<cmd>Telescope grep_string<cr>', 'Current [W]ord' },
+    },
+  },
 
-	setup = function(set)
-		for k, cmd in pairs(normalKeys) do
-			set('n', k, cmd[1], { desc = cmd[2] })
-		end
+  setup = function(set)
+    for k, cmd in pairs(normalKeys) do
+      set('n', k, cmd[1], { desc = cmd[2] })
+    end
 
     for k, cmd in pairs(visualKeys) do
       set('v', k, cmd[1], { desc = cmd[2] })
@@ -115,5 +127,31 @@ return {
     -- Word-wrap aware up/down.
     vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
     vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-	end
+  end,
+
+  onLspAttach = function(_, bufferNumber)
+    -- local nmap = function(keys, func, desc)
+    --   if desc then
+    --     desc = 'LSP: ' .. desc
+    --   end
+    --
+    --   vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    -- end
+    --
+    -- for k, thing in pairs(lspKeys) do
+    --   nmap(k, thing[1], thing[2])
+    -- end
+    local wk = require('which-key')
+    wk.register(lspKeys, {
+      buffer = bufferNumber,
+      prefix = '<leader>',
+    })
+
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation', buffer = bufferNumber })
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Hover documentation', buffer = bufferNumber })
+
+    -- Create a command `:Format` local to the LSP buffer
+    vim.api.nvim_buf_create_user_command(bufferNumber, 'Format', function(_)
+      vim.lsp.buf.format()
+    end, { desc = 'Format current buffer with LSP' })  end,
 }
