@@ -64,13 +64,9 @@ return {
 
 		g = {
 			name = '+Goto',
-			-- r = { '<cmd>Telescope lsp_references<cr>', 'References' },
-			-- R = { '<cmd>LspTrouble lsp_references<cr>', 'Trouble References' },
-			-- D = { '<cmd>lua require"lspsaga.provider".preview_definition()<CR>', 'Peek Definition' },
 			d = { '<cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
 			s = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', 'Signature Help' },
 			I = { '<cmd>lua vim.lsp.buf.implementation()<CR>', 'Goto Implementation' },
-			-- I = { '<Cmd>lua vim.lsp.buf.declaration()<CR>', 'Goto Declaration' },
 			t = { '<cmd>lua vim.lsp.buf.type_definition()<CR>', 'Goto Type Definition' },
 			k = { '<Cmd>lua vim.lsp.buf.hover()<CR>', 'Lsp Hoverdoc' },
 			w = { '<cmd>HopWord<CR>', 'Hop to word' },
@@ -95,14 +91,15 @@ return {
 
 		s = {
 			name = '+Searching',
-			f = { '<cmd>Telescope find_files<cr>', '[S]earch [F]iles' },
-      m = { '<cmd>Telescope harpoon marks<cr>', '[S]earch harpoon [M]arks' },
-			h = { '<cmd>Telescope help_tags<cr>', '[S]earch [H]elp' },
-			w = { '<cmd>Telescope grep_string<cr>', '[S]earch current [W]ord' },
-			g = { '<cmd>Telescope live_grep<cr>', '[S]earch by [G]rep' },
-			d = { '<cmd>Telescope diagnostics<cr>', '[S]earch [D]iagnostics' },
 			b = { '<cmd>Telescope buffers<cr>', '[S]earch [B]uffers' },
+			d = { '<cmd>Telescope diagnostics<cr>', '[S]earch [D]iagnostics' },
+			f = { '<cmd>Telescope find_files<cr>', '[S]earch [F]iles' },
+			g = { '<cmd>Telescope live_grep<cr>', '[S]earch by [G]rep' },
+			h = { '<cmd>Telescope help_tags<cr>', '[S]earch [H]elp' },
 			k = { '<cmd>Telescope keymaps<cr>', '[S]earch [K]eymaps' },
+      m = { '<cmd>Telescope harpoon marks<cr>', '[S]earch harpoon [M]arks' },
+			n = { '<cmd>Telescope notify<cr>', '[S]earch [N]otify' },
+			w = { '<cmd>Telescope grep_string<cr>', '[S]earch current [W]ord' },
 		},
 	},
 
