@@ -7,8 +7,6 @@ local normalKeys = {
   [']d'] = { vim.diagnostic.goto_next, 'Diagnostics next' },
   f = { "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>" },
   F = { "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>" },
-  k = { "v:count == 0 ? 'gk' : 'k'", 'Wrap-aware move up' },
-  j = { "v:count == 0 ? 'gj' : 'j'", 'Wrap-aware move down' },
   K = { '<cmd>lua vim.lsp.buf.hover()<cr>' },
   -- Yank to the end of the line.
   Y = { 'yg$', 'Yank to EOL' },
@@ -116,5 +114,9 @@ return {
     for k, cmd in pairs(visualKeys) do
       set('v', k, cmd[1], { desc = cmd[2] })
     end
+
+    -- Word-wrap aware up/down.
+    vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+    vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 	end
 }
