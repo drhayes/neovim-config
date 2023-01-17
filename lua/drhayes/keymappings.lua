@@ -3,8 +3,12 @@ local normalKeys = {
   ['<leader><space>'] = { '<cmd>Telescope oldfiles<cr>', 'Recently opened files' },
   ['<leader>/'] = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Fuzzy search in current buffer' },
   ['<leader>z'] = { ":redir @*> | echon join([expand('%'),  line('.')], ':') | redir END<CR>", 'Current relative filename in clipboard' },
+  ['[d'] = { vim.diagnostic.goto_prev, 'Diagnostics previous' },
+  [']d'] = { vim.diagnostic.goto_next, 'Diagnostics next' },
   f = { "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>" },
   F = { "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>" },
+  k = { "v:count == 0 ? 'gk' : 'k'", 'Wrap-aware move up' },
+  j = { "v:count == 0 ? 'gj' : 'j'", 'Wrap-aware move down' },
   K = { '<cmd>lua vim.lsp.buf.hover()<cr>' },
   -- Yank to the end of the line.
   Y = { 'yg$', 'Yank to EOL' },
@@ -52,6 +56,14 @@ return {
 			s = { "<cmd>lua require('telescope.builtin').buffers()<CR>", "Buffers" },
 		},
 
+    d = {
+      name = '+Diagnostics',
+      f = { vim.diagnostic.open_float, 'Open float' },
+      n = { vim.diagnostic.goto_next, 'Goto next' },
+      p = { vim.diagnostic.goto_prev, 'Goto prev' },
+      q = { vim.diagnostic.setloclist, 'Add diagnostics to loclist' },
+    },
+
 		g = {
 			name = '+Goto',
 			-- r = { '<cmd>Telescope lsp_references<cr>', 'References' },
@@ -92,6 +104,7 @@ return {
 			g = { '<cmd>Telescope live_grep<cr>', '[S]earch by [G]rep' },
 			d = { '<cmd>Telescope diagnostics<cr>', '[S]earch [D]iagnostics' },
 			b = { '<cmd>Telescope buffers<cr>', '[S]earch [B]uffers' },
+			k = { '<cmd>Telescope keymaps<cr>', '[S]earch [K]eymaps' },
 		},
 	},
 
