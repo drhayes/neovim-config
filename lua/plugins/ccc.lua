@@ -1,10 +1,10 @@
 return {
   'uga-rosa/ccc.nvim',
-  build = function()
-    local ccc = require 'ccc'
+  config = function()
+    local ccc = require('ccc')
     ccc.setup({
       highlighter = {
-	auto_enable = true,
+        auto_enable = true,
       },
     })
   end,

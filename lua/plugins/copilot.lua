@@ -1,7 +1,7 @@
 return {
   'zbirenbaum/copilot.lua',
   event = { 'VimEnter' },
-  build = function()
+  config = function()
     vim.defer_fn(function()
       require('copilot').setup()
     end, 100)

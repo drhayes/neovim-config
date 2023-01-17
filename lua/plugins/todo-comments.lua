@@ -3,7 +3,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  build = function ()
+  config = function()
     require('todo-comments').setup({})
   end,
   event = 'BufRead',

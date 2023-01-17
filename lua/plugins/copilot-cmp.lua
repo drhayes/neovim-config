@@ -1,7 +1,7 @@
 return {
   'zbirenbaum/copilot-cmp',
   dependencies = { 'zbirenbaum/copilot.lua' },
-  build = function()
+  config = function()
     require('copilot_cmp').setup()
   end,
 }
