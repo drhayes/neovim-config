@@ -130,17 +130,6 @@ return {
   end,
 
   onLspAttach = function(_, bufferNumber)
-    -- local nmap = function(keys, func, desc)
-    --   if desc then
-    --     desc = 'LSP: ' .. desc
-    --   end
-    --
-    --   vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-    -- end
-    --
-    -- for k, thing in pairs(lspKeys) do
-    --   nmap(k, thing[1], thing[2])
-    -- end
     local wk = require('which-key')
     wk.register(lspKeys, {
       buffer = bufferNumber,
