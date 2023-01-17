@@ -12,6 +12,7 @@ return {
             ['<C-d>'] = false,
           },
         },
+        path_display = { 'absolute' },
       },
     })
 
