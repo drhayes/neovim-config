@@ -19,4 +19,5 @@ return {
 
   'williamboman/mason-lspconfig.nvim',
   'RRethy/vim-illuminate',
+  'nvim-treesitter/nvim-treesitter-context',
 }
