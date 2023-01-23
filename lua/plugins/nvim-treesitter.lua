@@ -10,7 +10,8 @@ return {
       ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'tsx' },
 
       highlight = { enable = true },
-      indent = { enable = true, disable = { 'python' } },
+      -- indent = { enable = true, disable = { 'python' } },
+      indent = { enable = false },
       incremental_selection = {
         enable = true,
         keymaps = {

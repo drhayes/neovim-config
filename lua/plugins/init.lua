@@ -1,5 +1,4 @@
 return {
-  'kylechui/nvim-surround',
   'gpanders/editorconfig.nvim',
   'fladson/vim-kitty',
   'tpope/vim-repeat',
