@@ -1,6 +1,6 @@
 local normalKeys = {
   ['<leader>d'] = { '"_d', 'Delete without overwrite' },
-  ['<leader><space>'] = { '<cmd>Telescope oldfiles<cr>', 'Recently opened files' },
+  ['<leader><space>'] = { '<cmd>Telescope find_files<cr>', 'Files' },
   ['<leader>/'] = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Fuzzy search in current buffer' },
   ['<leader>z'] = { ":redir @*> | echon join([expand('%'),  line('.')], ':') | redir END<CR>", 'Current relative filename in clipboard' },
   ['[d'] = { vim.diagnostic.goto_prev, 'Diagnostics previous' },
