@@ -2,18 +2,18 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nightfox",
+      colorscheme = "tokyonight",
     },
   },
 
-  {
-    "EdenEast/nightfox.nvim",
-  },
-
   -- {
-  --   "folke/tokyonight.nvim",
-  --   opts = {
-  --     style = "moon",
-  --   },
+  --   "EdenEast/nightfox.nvim",
   -- },
+
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      style = "moon",
+    },
+  },
 }
