@@ -1,36 +1,26 @@
 local node = os.getenv("HOME") .. "/.asdf/installs/nodejs/18.9.0/bin/node"
 
 return {
-  -- PLUGINS: copilot
   -- {
-  -- "github/copilot.vim",
-  --   init = "require('cwebster.copilot').setup()"
-  -- vim.g.copilot_no_tab_map = true
-  -- vim.g.copilot_assume_mapped = true
-  -- vim.g.copilot_tab_fallback = ""
-  -- vim.g.copilot_node_command = node
+  --   "github/copilot.vim",
   -- },
 
   {
     "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    opts = {
-      ft_disable = { "markdown" },
-      copilot_node_command = node,
-    },
+    lazy = true,
     config = function(plugin)
-      vim.defer_fn(function()
-        require("copilot").setup(plugin.opts)
-      end, 100)
+      require("copilot").setup(plugin.opts)
     end,
   },
 
   {
     "zbirenbaum/copilot-cmp",
-    module = "copilot_cmp",
-    dependencies = { "copilot.lua" },
-    opts = {
-      method = "getCompletionsCycling",
+    dependencies = {
+      "zbirenbaum/copilot.lua",
+      "hrsh7th/nvim-cmp",
     },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
   },
 }
