@@ -12,5 +12,11 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+-- Move blocks when visually selected.
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Center after move.
+map("n", "n", "nzzzv", { desc = "Next then center" })
+map("n", "N", "Nzzzv", { desc = "Prev then center" })
+map("n", "G", "Gzz", { desc = "Go then center" })
