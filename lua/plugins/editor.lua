@@ -56,7 +56,17 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      servers = { eslint = {} },
+      servers = {
+        eslint = {},
+
+        tsserver = {
+          cmd = {
+            "/home/drhayes/.asdf/installs/nodejs/19.8.1/bin/typescript-language-server",
+            "--stdio",
+          },
+        },
+      },
+
       setup = {
         eslint = function()
           require("lazyvim.util").on_attach(function(client)
