@@ -1,4 +1,4 @@
-local node = os.getenv("HOME") .. "/.asdf/installs/nodejs/18.9.0/bin/node"
+-- local node = os.getenv("HOME") .. "/.asdf/installs/nodejs/18.9.0/bin/node"
 
 return {
   -- {
