@@ -8,8 +8,10 @@ return {
   {
     "zbirenbaum/copilot.lua",
     lazy = true,
-    config = function(plugin)
-      require("copilot").setup(plugin.opts)
+    config = function()
+      -- config = function(plugin)
+      require("copilot").setup()
+      -- require("copilot").setup(plugin.opts)
     end,
   },
 
