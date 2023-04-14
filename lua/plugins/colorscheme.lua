@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "dracula",
     },
   },
 
@@ -15,5 +15,9 @@ return {
     opts = {
       style = "moon",
     },
+  },
+
+  {
+    "Mofiqul/dracula.nvim",
   },
 }
