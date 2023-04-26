@@ -1,17 +1,12 @@
 -- local node = os.getenv("HOME") .. "/.asdf/installs/nodejs/18.9.0/bin/node"
 
 return {
-  -- {
-  --   "github/copilot.vim",
-  -- },
-
   {
     "zbirenbaum/copilot.lua",
     lazy = true,
+    cmd = "Copilot",
     config = function()
-      -- config = function(plugin)
       require("copilot").setup()
-      -- require("copilot").setup(plugin.opts)
     end,
   },
 

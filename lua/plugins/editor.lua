@@ -46,15 +46,26 @@ return {
     },
     opts = function(_, opts)
       local cmp = require("cmp")
-      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
-        {
-          name = "copilot",
-          group_index = 2,
+      table.insert(opts.sources, {
+        name = "emoji",
+        option = {
+          keyword_length = 1,
         },
-        {
-          name = "emoji",
+      })
+      table.insert(opts.sources, {
+        name = "copilot",
+        group_index = 2,
+        option = {
+          keyword_length = 1,
         },
-      }))
+      })
+      opts.mapping = cmp.mapping.preset.insert({
+        ["<CR>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        }),
+      })
+      return opts
     end,
   },
 
