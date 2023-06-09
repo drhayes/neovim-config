@@ -114,4 +114,18 @@ return {
       },
     },
   },
+
+  {
+    "bennypowers/webc.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    opts = true,
+  },
+
+  {
+    "Bekaboo/dropbar.nvim",
+  },
+
+  {
+    "kchmck/vim-coffee-script",
+  },
 }
