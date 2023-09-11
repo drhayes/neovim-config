@@ -52,13 +52,13 @@ return {
           keyword_length = 1,
         },
       })
-      table.insert(opts.sources, {
-        name = "copilot",
-        group_index = 2,
-        option = {
-          keyword_length = 1,
-        },
-      })
+      -- table.insert(opts.sources, {
+      --   name = "copilot",
+      --   group_index = 2,
+      --   option = {
+      --     keyword_length = 1,
+      --   },
+      -- })
       opts.mapping = cmp.mapping.preset.insert({
         ["<CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
@@ -127,5 +127,15 @@ return {
 
   {
     "kchmck/vim-coffee-script",
+  },
+
+  { "tikhomirov/vim-glsl" },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = "markdown",
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   },
 }

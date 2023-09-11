@@ -6,10 +6,6 @@ return {
     },
   },
 
-  -- {
-  --   "EdenEast/nightfox.nvim",
-  -- },
-
   {
     "folke/tokyonight.nvim",
     opts = {
@@ -17,7 +13,9 @@ return {
     },
   },
 
-  {
-    "Mofiqul/dracula.nvim",
-  },
+  { "Mofiqul/dracula.nvim" },
+
+  { "EdenEast/nightfox.nvim" },
+
+  { "sainnhe/everforest" },
 }
