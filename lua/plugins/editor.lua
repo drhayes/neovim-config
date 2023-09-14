@@ -1,53 +1,62 @@
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+end
+
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
 return {
-  { "tpope/vim-unimpaired" },
+  { 'tpope/vim-unimpaired' },
 
   {
-    "almo7aya/openingh.nvim",
+    'almo7aya/openingh.nvim',
     keys = {
-      { "<leader>gr", "<cmd>OpenInGHRepo <cr>", desc = "Open in GitHub repo" },
-      { "<leader>gf", "<cmd>OpenInGHFile <cr>", desc = "Open in GitHub file" },
+      { '<leader>gr', '<cmd>OpenInGHRepo <cr>', desc = 'Open in GitHub repo' },
+      { '<leader>gf', '<cmd>OpenInGHFile <cr>', desc = 'Open in GitHub file' },
     },
   },
 
   {
-    "NvChad/nvim-colorizer.lua",
+    'NvChad/nvim-colorizer.lua',
     config = function()
-      require("colorizer").setup({})
+      require('colorizer').setup({})
     end,
   },
 
   {
-    "tpope/vim-surround",
+    'tpope/vim-surround',
   },
 
   {
-    "tpope/vim-commentary",
+    'tpope/vim-commentary',
   },
 
   {
-    "echasnovski/mini.surround",
+    'echasnovski/mini.surround',
     enabled = false,
   },
 
   {
-    "echasnovski/mini.comment",
+    'echasnovski/mini.comment',
     enabled = false,
   },
 
   {
-    "echasnovski/mini.pairs",
+    'echasnovski/mini.pairs',
     enabled = false,
   },
 
   {
-    "hrsh7th/nvim-cmp",
+    'hrsh7th/nvim-cmp',
     dependencies = {
-      "hrsh7th/cmp-emoji",
+      'hrsh7th/cmp-emoji',
     },
     opts = function(_, opts)
-      local cmp = require("cmp")
+      local cmp = require('cmp')
       table.insert(opts.sources, {
-        name = "emoji",
+        name = 'emoji',
         option = {
           keyword_length = 1,
         },
@@ -60,9 +69,9 @@ return {
       --   },
       -- })
       opts.mapping = cmp.mapping.preset.insert({
-        ["<CR>"] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
+        ['<CR>'] = cmp.mapping.confirm({
+          -- behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
         }),
       })
       return opts
@@ -70,11 +79,11 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    'jose-elias-alvarez/null-ls.nvim',
     opts = function()
-      local nls = require("null-ls")
+      local nls = require('null-ls')
       return {
-        root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
+        root_dir = require('null-ls.utils').root_pattern('.null-ls-root', '.neoconf.json', 'Makefile', '.git'),
         sources = {
           nls.builtins.formatting.prettier,
           nls.builtins.formatting.fish_indent,
@@ -88,25 +97,25 @@ return {
   },
 
   {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
     opts = {
       servers = {
         eslint = {},
 
         tsserver = {
           cmd = {
-            "/home/drhayes/.asdf/installs/nodejs/19.8.1/bin/typescript-language-server",
-            "--stdio",
+            '/home/drhayes/.asdf/installs/nodejs/19.8.1/bin/typescript-language-server',
+            '--stdio',
           },
         },
       },
 
       setup = {
         eslint = function()
-          require("lazyvim.util").on_attach(function(client)
-            if client.name == "eslint" then
+          require('lazyvim.util').on_attach(function(client)
+            if client.name == 'eslint' then
               client.server_capabilities.documentFormattingProvider = true
-            elseif client.name == "tsserver" then
+            elseif client.name == 'tsserver' then
               client.server_capabilities.documentFormattingProvider = false
             end
           end)
@@ -116,26 +125,26 @@ return {
   },
 
   {
-    "bennypowers/webc.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
+    'bennypowers/webc.nvim',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
     opts = true,
   },
 
   {
-    "Bekaboo/dropbar.nvim",
+    'Bekaboo/dropbar.nvim',
   },
 
   {
-    "kchmck/vim-coffee-script",
+    'kchmck/vim-coffee-script',
   },
 
-  { "tikhomirov/vim-glsl" },
+  { 'tikhomirov/vim-glsl' },
 
   {
-    "iamcco/markdown-preview.nvim",
-    ft = "markdown",
+    'iamcco/markdown-preview.nvim',
+    ft = 'markdown',
     build = function()
-      vim.fn["mkdp#util#install"]()
+      vim.fn['mkdp#util#install']()
     end,
   },
 }
