@@ -14,7 +14,6 @@ end
 
 -- My god, vertical split help.
 vim.keymap.set('c', 'help', 'vert help')
-vim.keymap.set('c', 'h', 'vert help')
 
 -- Move blocks when visually selected.
 map('v', 'J', ":m '>+1<CR>gv=gv")
