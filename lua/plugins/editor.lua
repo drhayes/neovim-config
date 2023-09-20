@@ -1,4 +1,5 @@
 local has_words_before = function()
+  unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
@@ -50,31 +51,45 @@ return {
 
   {
     'hrsh7th/nvim-cmp',
-    dependencies = {
-      'hrsh7th/cmp-emoji',
-    },
+    lazy = false,
+    dependencies = { 'hrsh7th/cmp-emoji' },
+    ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require('cmp')
-      table.insert(opts.sources, {
-        name = 'emoji',
-        option = {
-          keyword_length = 1,
-        },
+
+      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
+        { name = 'emoji' },
+        { name = 'copilot', group_index = 2, option = { keyword_length = 2 } },
+      }))
+
+      cmp.mapping.preset.insert({
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          local copilot_keys = vim.fn['copilot#Accept']()
+          if cmp.visible() then
+            cmp.confirm({ select = true })
+          elseif copilot_keys ~= '' and type(copilot_keys) == 'string' then
+            vim.api.nvim_feedkeys(copilot_keys, 'n', true)
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
       })
-      -- table.insert(opts.sources, {
-      --   name = "copilot",
-      --   group_index = 2,
-      --   option = {
-      --     keyword_length = 1,
-      --   },
-      -- })
+
+      -- opts.mapping = cmp.config.mapping(vim.tbl_extend('keep', opts.mapping or {}, {
       opts.mapping = cmp.mapping.preset.insert({
-        ['<CR>'] = cmp.mapping.confirm({
-          -- behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-        }),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<TAB>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       })
-      return opts
     end,
   },
 
