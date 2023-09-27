@@ -165,4 +165,14 @@ return {
       vim.fn['mkdp#util#install']()
     end,
   },
+
+  {
+    'nvim-telescope/telescope.nvim',
+    init = function()
+      local actions = require('telescope.actions')
+      actions.select_default:replace(function(prompt_bufnr)
+        return actions.select_default() + actions.center(prompt_bufnr)
+      end)
+    end,
+  },
 }
