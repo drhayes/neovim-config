@@ -97,24 +97,6 @@ return {
   },
 
   {
-    'nvimtools/none-ls.nvim',
-    opts = function()
-      local nls = require('null-ls')
-      return {
-        root_dir = require('null-ls.utils').root_pattern('.null-ls-root', '.neoconf.json', 'Makefile', '.git'),
-        sources = {
-          nls.builtins.formatting.prettier,
-          nls.builtins.formatting.fish_indent,
-          nls.builtins.diagnostics.fish,
-          nls.builtins.formatting.stylua,
-          nls.builtins.formatting.shfmt,
-          nls.builtins.diagnostics.flake8,
-        },
-      }
-    end,
-  },
-
-  {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
@@ -130,7 +112,7 @@ return {
 
       setup = {
         eslint = function()
-          require('lazyvim.util').on_attach(function(client)
+          require('lazyvim.util').lsp.on_attach(function(client)
             if client.name == 'eslint' then
               client.server_capabilities.documentFormattingProvider = true
             elseif client.name == 'tsserver' then
