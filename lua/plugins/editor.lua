@@ -96,6 +96,18 @@ return {
     end,
   },
 
+  -- local nvim_lsp = require('lspconfig')
+  -- nvim_lsp.denols.setup {
+  -- on_attach = on_attach,
+  -- root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+  -- }
+
+  -- nvim_lsp.tsserver.setup {
+  -- on_attach = on_attach,
+  -- root_dir = nvim_lsp.util.root_pattern("package.json"),
+  -- single_file_support = false
+  -- }
+
   {
     'neovim/nvim-lspconfig',
     opts = {
@@ -107,7 +119,13 @@ return {
             '/home/drhayes/.asdf/installs/nodejs/19.8.1/bin/typescript-language-server',
             '--stdio',
           },
+          root_dir = require('lspconfig/util').root_pattern('package.json'),
+          single_file_support = false,
         },
+      },
+
+      denols = {
+        root_dir = require('lspconfig/util').root_pattern('deno.json', 'deno.jsonc'),
       },
 
       setup = {
@@ -155,6 +173,20 @@ return {
       actions.select_default:replace(function(prompt_bufnr)
         return actions.select_default() + actions.center(prompt_bufnr)
       end)
+    end,
+  },
+
+  {
+    'dustinblackman/oatmeal.nvim',
+    cmd = { 'Oatmeal' },
+    keys = {
+      { '<leader>om', mode = 'n', desc = 'Start Oatmeal session' },
+    },
+    config = function()
+      require('oatmeal').setup({
+        backend = 'ollama',
+        model = 'codellama:latest',
+      })
     end,
   },
 }
