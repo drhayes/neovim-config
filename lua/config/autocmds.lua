@@ -4,13 +4,13 @@
 
 local definitions = {
   {
-    'BufEnter,CmdlineLeave,FocusGained,InsertLeave,WinEnter',
+    { 'BufEnter', 'CmdlineLeave', 'FocusGained', 'InsertLeave', 'WinEnter' },
     '*',
     [[if &number | setlocal relativenumber | endif]],
     'conditionally toggle relative line numbers (for pairing)',
   },
   {
-    'BufLeave,CmdlineEnter,FocusLost,InsertEnter,WinLeave',
+    { 'BufLeave', 'CmdlineEnter', 'FocusLost', 'InsertEnter', 'WinLeave' },
     '*',
     [[if &number | setlocal norelativenumber | endif]],
     'conditionally toggle relative line numbers (for pairing)',
