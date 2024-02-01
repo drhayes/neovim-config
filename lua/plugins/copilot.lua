@@ -6,7 +6,13 @@ return {
     lazy = true,
     cmd = 'Copilot',
     config = function()
-      require('copilot').setup()
+      require('copilot').setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+        filetypes = {
+          norg = false,
+        },
+      })
     end,
   },
 
