@@ -4,12 +4,26 @@ return {
     opts = {
       colorscheme = 'tokyonight',
     },
+    init = function()
+      vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true })
+      vim.api.nvim_set_hl(0, 'LineNr', { fg = 'white', bold = true })
+      vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#FB508F', bold = true })
+    end,
   },
 
   {
     'folke/tokyonight.nvim',
     opts = {
       style = 'moon',
+      styles = {
+        sidebars = 'normal',
+      },
+      on_colors = function(colors)
+        -- colors.fg_gutter = '#b2b8cf'
+      end,
+      on_highlights = function(highlights, colors)
+        highlights.LineNr.fg = '#b2b8cf'
+      end,
     },
   },
 
