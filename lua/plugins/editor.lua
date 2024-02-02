@@ -176,17 +176,17 @@ return {
     end,
   },
 
-  {
-    'dustinblackman/oatmeal.nvim',
-    cmd = { 'Oatmeal' },
-    keys = {
-      { '<leader>om', mode = 'n', desc = 'Start Oatmeal session' },
-    },
-    config = function()
-      require('oatmeal').setup({
-        backend = 'ollama',
-        model = 'codellama:latest',
-      })
-    end,
-  },
+  -- {
+  --   'dustinblackman/oatmeal.nvim',
+  --   cmd = { 'Oatmeal' },
+  --   keys = {
+  --     { '<leader>om', mode = 'n', desc = 'Start Oatmeal session' },
+  --   },
+  --   config = function()
+  --     require('oatmeal').setup({
+  --       backend = 'ollama',
+  --       model = 'codellama:latest',
+  --     })
+  --   end,
+  -- },
 }
