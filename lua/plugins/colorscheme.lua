@@ -18,9 +18,6 @@ return {
       styles = {
         sidebars = 'normal',
       },
-      on_colors = function(colors)
-        -- colors.fg_gutter = '#b2b8cf'
-      end,
       on_highlights = function(highlights, colors)
         highlights.LineNr.fg = '#b2b8cf'
       end,
@@ -40,4 +37,16 @@ return {
   { 'EdenEast/nightfox.nvim' },
 
   { 'sainnhe/everforest' },
+
+  {
+    'oxfist/night-owl.nvim',
+    -- lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    -- priority = 1000, -- make sure to load this before all the other start plugins
+    -- config = function()
+    --   -- load the colorscheme here
+    --   vim.cmd.colorscheme('night-owl')
+    -- end,
+  },
+
+  { 'shaunsingh/nord.nvim' },
 }
