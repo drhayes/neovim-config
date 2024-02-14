@@ -175,4 +175,8 @@ return {
       end)
     end,
   },
+
+  {
+    'BlackLight/nvim-http',
+  },
 }
