@@ -2,7 +2,7 @@ return {
   {
     'LazyVim/LazyVim',
     opts = {
-      colorscheme = 'dracula',
+      colorscheme = 'tokyonight',
     },
     init = function()
       vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#51B3EC', bold = true })
