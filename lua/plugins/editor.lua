@@ -179,4 +179,8 @@ return {
   {
     'BlackLight/nvim-http',
   },
+
+  {
+    'Glench/Vim-Jinja2-Syntax',
+  },
 }
