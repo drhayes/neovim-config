@@ -6,5 +6,6 @@ vim.filetype.add({
   extension = {
     njk = 'html',
     snowflake = 'sql',
+    tid = 'html',
   },
 })
