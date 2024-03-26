@@ -10,3 +10,5 @@ multiline
 LazyVim
 config
 lua
+hyperfocus
+healthcheck
