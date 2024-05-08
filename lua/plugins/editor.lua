@@ -112,7 +112,7 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
-        eslint = {},
+        -- eslint = {},
 
         tsserver = {
           cmd = {
