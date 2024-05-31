@@ -114,14 +114,14 @@ return {
       servers = {
         -- eslint = {},
 
-        tsserver = {
-          cmd = {
-            '/home/drhayes/.asdf/installs/nodejs/19.8.1/bin/typescript-language-server',
-            '--stdio',
-          },
-          root_dir = require('lspconfig/util').root_pattern('package.json'),
-          single_file_support = false,
-        },
+        -- tsserver = {
+        --   cmd = {
+        --     '/home/drhayes/.asdf/installs/nodejs/19.8.1/bin/typescript-language-server',
+        --     '--stdio',
+        --   },
+        --   root_dir = require('lspconfig/util').root_pattern('package.json'),
+        --   single_file_support = false,
+        -- },
       },
 
       denols = {
@@ -133,8 +133,8 @@ return {
           require('lazyvim.util').lsp.on_attach(function(client)
             if client.name == 'eslint' then
               client.server_capabilities.documentFormattingProvider = true
-            elseif client.name == 'tsserver' then
-              client.server_capabilities.documentFormattingProvider = false
+              -- elseif client.name == 'tsserver' then
+              --   client.server_capabilities.documentFormattingProvider = false
             end
           end)
         end,
@@ -178,9 +178,5 @@ return {
 
   {
     'BlackLight/nvim-http',
-  },
-
-  {
-    'Glench/Vim-Jinja2-Syntax',
   },
 }
