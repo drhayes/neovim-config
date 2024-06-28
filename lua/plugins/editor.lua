@@ -179,4 +179,11 @@ return {
   {
     'BlackLight/nvim-http',
   },
+
+  -- {
+  --   'tris203/precognition.nvim',
+  --   opts = {
+  --     -- startVisible = true,
+  --   },
+  -- },
 }
