@@ -4,14 +4,14 @@ return {
     enabled = false,
   },
 
-  {
-    'mfussenegger/nvim-lint',
-    opts = {
-      linters = {
-        markdownlint = {
-          args = { '--disable', 'MD013', '--disable', 'MD034', '--' },
-        },
-      },
-    },
-  },
+  -- {
+  --   'mfussenegger/nvim-lint',
+  --   opts = {
+  --     linters = {
+  --       markdownlint = {
+  --         args = { '--disable', 'MD013', '--disable', 'MD034', '--' },
+  --       },
+  --     },
+  --   },
+  -- },
 }

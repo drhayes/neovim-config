@@ -111,6 +111,9 @@ return {
   {
     'neovim/nvim-lspconfig',
     opts = {
+      inlay_hints = {
+        enabled = false,
+      },
       servers = {
         -- eslint = {},
 
@@ -122,6 +125,9 @@ return {
         --   root_dir = require('lspconfig/util').root_pattern('package.json'),
         --   single_file_support = false,
         -- },
+        harper_ls = {
+          filetypes = { 'markdown' },
+        },
       },
 
       denols = {

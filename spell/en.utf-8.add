@@ -12,3 +12,6 @@ config
 lua
 hyperfocus
 healthcheck
+Titanomachy
+Epimetheus
+eslint
