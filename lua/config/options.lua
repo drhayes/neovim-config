@@ -7,5 +7,6 @@ vim.filetype.add({
     njk = 'html',
     snowflake = 'sql',
     tid = 'html',
+    handlebars = 'html',
   },
 })
