@@ -1,5 +1,20 @@
 return {
   {
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      on_attach = function(buffer)
+        local gs = package.loaded.gitsigns
+
+        local function map(mode, l, r, desc)
+          vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+        end
+
+        map('n', '<leader>ghp', gs.preview_hunk, 'Preview Hunk')
+      end,
+    },
+  },
+
+  {
     'NeogitOrg/neogit',
     dependencies = {
       'nvim-lua/plenary.nvim', -- required

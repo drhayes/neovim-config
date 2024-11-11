@@ -1,6 +1,16 @@
 -- local node = os.getenv('HOME') .. '/.asdf/installs/nodejs/18.9.0/bin/node'
 
 return {
+  {
+    'zbirenbaum/copilot.lua',
+    enabled = false,
+  },
+
+  {
+    'zbirenbaum/copilot-cmp',
+    enabled = false,
+  },
+
   -- {
   --   'zbirenbaum/copilot.lua',
   --   lazy = true,

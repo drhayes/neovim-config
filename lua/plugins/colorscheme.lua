@@ -33,4 +33,8 @@ return {
       },
     },
   },
+
+  {
+    'GlennLeo/cobalt2',
+  },
 }
