@@ -10,3 +10,9 @@ vim.filetype.add({
     handlebars = 'html',
   },
 })
+
+-- Only format when there's a prettier config file.
+vim.g.lazyvim_prettier_needs_config = true
+
+-- As per https://github.com/rachartier/tiny-inline-diagnostic.nvim
+vim.diagnostic.config({ virtual_text = false })

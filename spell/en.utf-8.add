@@ -18,3 +18,12 @@ eslint
 GLG
 SSO
 Epiquery
+Dockerfile
+uWSGI
+WSGI
+localhost
+http
+https
+NGINX
+amd64
+arm64

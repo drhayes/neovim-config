@@ -192,4 +192,28 @@ return {
   --     -- startVisible = true,
   --   },
   -- },
+  {
+    'rachartier/tiny-inline-diagnostic.nvim',
+    event = 'VeryLazy', -- Or `LspAttach`
+    priority = 1000, -- needs to be loaded in first
+    config = function()
+      require('tiny-inline-diagnostic').setup({
+        options = {
+          break_line = {
+            enabled = true,
+            after = 50,
+          },
+        },
+      })
+    end,
+  },
+
+  {
+    'folke/snacks.nvim',
+    opts = {
+      scroll = {
+        enabled = false,
+      },
+    },
+  },
 }
