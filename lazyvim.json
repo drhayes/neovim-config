@@ -2,7 +2,9 @@
   "extras": [
     "lazyvim.plugins.extras.ai.copilot",
     "lazyvim.plugins.extras.ai.copilot-chat",
+    "lazyvim.plugins.extras.coding.nvim-cmp",
     "lazyvim.plugins.extras.editor.dial",
+    "lazyvim.plugins.extras.editor.telescope",
     "lazyvim.plugins.extras.lang.git",
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.sql",
@@ -14,7 +16,7 @@
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
   "news": {
-    "NEWS.md": "7107"
+    "NEWS.md": "10960"
   },
   "version": 7
 }

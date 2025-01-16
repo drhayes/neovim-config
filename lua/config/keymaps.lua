@@ -23,3 +23,23 @@ map('v', 'K', ":m '<-2<CR>gv=gv")
 map('n', 'n', 'nzzzv', { desc = 'Next then center' })
 map('n', 'N', 'Nzzzv', { desc = 'Prev then center' })
 map('n', 'G', 'Gzz', { desc = 'Go then center' })
+
+-- From: https://github.com/ibhagwan/fzf-lua/issues/1262
+-- Allow <C-R>w to get current word under cursor for fzf-lua.
+-- vim.keymap.set({ "n", "x" }, "<C-l>",
+--   function()
+--     vim.fn.setreg("w", vim.fn.expand("<cword>"))
+--     require('fzf-lua').live_grep({
+--       winopts = {
+--         on_create = function()
+--           local b = vim.api.nvim_get_current_buf()
+--           vim.keymap.set(
+--             "t", "<C-r>", [['<C-\><C-N>"'.nr2char(getchar()).'pi']],
+--             { buffer = b, expr = true }
+--           )
+--         end
+--       }
+--     })
+--   end,
+--   { silent = true, desc = "FzfLua live_grep" }
+-- )
