@@ -32,3 +32,20 @@ for _, def in ipairs(definitions) do
     desc = def[4],
   })
 end
+
+local epiquery_templates_dir = vim.fn.expand('~') .. '/src/glg/epiquery-templates/'
+
+-- Create an autocommand group
+vim.api.nvim_create_augroup('MustacheToSQL', { clear = true })
+
+-- Create an autocommand
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = 'MustacheToSQL',
+  pattern = '*.mustache',
+  callback = function()
+    local current_file = vim.fn.expand('%:p')
+    if string.find(current_file, epiquery_templates_dir, 1, true) then
+      vim.bo.filetype = 'sql'
+    end
+  end,
+})
