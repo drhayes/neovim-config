@@ -43,7 +43,7 @@ return {
     init = function()
       local wk = require('which-key')
       wk.add({
-        { '<leader>gg', '<cmd>Neogit<cr>', desc = '[N]eogit' },
+        { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Neo[g]it' },
       })
     end,
   },
