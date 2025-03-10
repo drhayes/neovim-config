@@ -4,10 +4,6 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
-local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
 return {
   { 'tpope/vim-unimpaired' },
 
@@ -88,58 +84,6 @@ return {
     end,
   },
 
-  -- local nvim_lsp = require('lspconfig')
-  -- nvim_lsp.denols.setup {
-  -- on_attach = on_attach,
-  -- root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
-  -- }
-
-  -- nvim_lsp.tsserver.setup {
-  -- on_attach = on_attach,
-  -- root_dir = nvim_lsp.util.root_pattern("package.json"),
-  -- single_file_support = false
-  -- }
-
-  {
-    'neovim/nvim-lspconfig',
-    opts = {
-      inlay_hints = {
-        enabled = false,
-      },
-      servers = {
-        -- eslint = {},
-
-        -- tsserver = {
-        --   cmd = {
-        --     '/home/drhayes/.asdf/installs/nodejs/19.8.1/bin/typescript-language-server',
-        --     '--stdio',
-        --   },
-        --   root_dir = require('lspconfig/util').root_pattern('package.json'),
-        --   single_file_support = false,
-        -- },
-        harper_ls = {
-          filetypes = { 'markdown' },
-        },
-      },
-
-      denols = {
-        root_dir = require('lspconfig/util').root_pattern('deno.json', 'deno.jsonc'),
-      },
-
-      setup = {
-        eslint = function()
-          require('lazyvim.util').lsp.on_attach(function(client)
-            if client.name == 'eslint' then
-              client.server_capabilities.documentFormattingProvider = true
-              -- elseif client.name == 'tsserver' then
-              --   client.server_capabilities.documentFormattingProvider = false
-            end
-          end)
-        end,
-      },
-    },
-  },
-
   {
     'bennypowers/webc.nvim',
     dependencies = 'nvim-treesitter/nvim-treesitter',
@@ -178,12 +122,6 @@ return {
     'BlackLight/nvim-http',
   },
 
-  -- {
-  --   'tris203/precognition.nvim',
-  --   opts = {
-  --     -- startVisible = true,
-  --   },
-  -- },
   {
     'rachartier/tiny-inline-diagnostic.nvim',
     event = 'VeryLazy', -- Or `LspAttach`
