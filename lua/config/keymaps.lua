@@ -24,6 +24,11 @@ map('n', 'n', 'nzzzv', { desc = 'Next then center' })
 map('n', 'N', 'Nzzzv', { desc = 'Prev then center' })
 map('n', 'G', 'Gzz', { desc = 'Go then center' })
 
+-- vim.keymap.del('n', '<C-h>')
+-- vim.keymap.del('n', '<C-j>')
+-- vim.keymap.del('n', '<C-k>')
+-- vim.keymap.del('n', '<C-l>')
+
 -- From: https://github.com/ibhagwan/fzf-lua/issues/1262
 -- Allow <C-R>w to get current word under cursor for fzf-lua.
 -- vim.keymap.set({ "n", "x" }, "<C-l>",
