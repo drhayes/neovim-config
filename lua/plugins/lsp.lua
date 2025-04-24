@@ -31,6 +31,10 @@ return {
         harper_ls = {
           filetypes = { 'markdown' },
         },
+
+        cssls = {
+          filetypes = { 'css' },
+        },
       },
 
       denols = {
