@@ -15,4 +15,8 @@ return {
       })
     end,
   },
+  {
+    'sphamba/smear-cursor.nvim',
+    opts = {},
+  },
 }

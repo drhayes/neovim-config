@@ -24,6 +24,9 @@ map('n', 'n', 'nzzzv', { desc = 'Next then center' })
 map('n', 'N', 'Nzzzv', { desc = 'Prev then center' })
 map('n', 'G', 'Gzz', { desc = 'Go then center' })
 
+map('v', '<leader>64e', "c<c-r>=system('base64 --wrap=0',          @\")<cr><esc>", { desc = 'Base64 encode' })
+map('v', '<leader>64d', "c<c-r>=system('base64 --wrap=0 --decode', @\")<cr><esc>", { desc = 'Base64 decode' })
+
 -- vim.keymap.del('n', '<C-h>')
 -- vim.keymap.del('n', '<C-j>')
 -- vim.keymap.del('n', '<C-k>')
