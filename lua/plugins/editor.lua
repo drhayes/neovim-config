@@ -23,17 +23,17 @@ return {
   },
 
   {
-    'echasnovski/mini.surround',
+    'nvim-mini/mini.surround',
     enabled = false,
   },
 
   {
-    'echasnovski/mini.comment',
+    'nvim-mini/mini.comment',
     enabled = false,
   },
 
   {
-    'echasnovski/mini.pairs',
+    'nvim-mini/mini.pairs',
     enabled = false,
   },
 
