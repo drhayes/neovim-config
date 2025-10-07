@@ -203,6 +203,11 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+-- Center after move.
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next then center' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Prev then center' })
+vim.keymap.set('n', 'G', 'Gzz', { desc = 'Go then center' })
+
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
