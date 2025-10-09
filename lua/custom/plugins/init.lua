@@ -417,27 +417,27 @@ return {
         desc = 'LSP Symbols',
       },
       {
-        '<leader>sS',
+        '<leader>sw',
         function()
           Snacks.picker.lsp_workspace_symbols()
         end,
         desc = 'LSP Workspace Symbols',
       },
       -- Other
-      {
-        '<leader>z',
-        function()
-          Snacks.zen()
-        end,
-        desc = 'Toggle Zen Mode',
-      },
-      {
-        '<leader>Z',
-        function()
-          Snacks.zen.zoom()
-        end,
-        desc = 'Toggle Zoom',
-      },
+      -- {
+      --   '<leader>z',
+      --   function()
+      --     Snacks.zen()
+      --   end,
+      --   desc = 'Toggle Zen Mode',
+      -- },
+      -- {
+      --   '<leader>Z',
+      --   function()
+      --     Snacks.zen.zoom()
+      --   end,
+      --   desc = 'Toggle Zoom',
+      -- },
       {
         '<leader>.',
         function()
@@ -691,6 +691,12 @@ return {
           end)
         end,
       })
+    end,
+  },
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
     end,
   },
 }
