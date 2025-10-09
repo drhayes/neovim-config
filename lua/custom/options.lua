@@ -35,7 +35,7 @@ opt.listchars = {
 }
 opt.mouse = 'a'
 opt.number = true
-opt.scrolloff = 10
+opt.scrolloff = 4
 opt.shell = '/usr/bin/fish'
 opt.showmode = false
 opt.signcolumn = 'yes'
