@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+
   {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {},
@@ -45,7 +46,29 @@ return {
         enabled = true,
         timeout = 3000,
       },
-      picker = { enabled = true },
+      picker = {
+        enabled = true,
+        actions = {
+          list_scroll_right = function(picker)
+            if picker.list.win:valid() then
+              picker.list.win:hscroll()
+            end
+          end,
+          list_scroll_left = function(picker)
+            if picker.list.win:valid() then
+              picker.list.win:hscroll(true)
+            end
+          end,
+        },
+        win = {
+          input = {
+            keys = {
+              ['<C-l>'] = { 'list_scroll_right', mode = { 'n', 'i' } },
+              ['<C-h>'] = { 'list_scroll_left', mode = { 'n', 'i' } },
+            },
+          },
+        },
+      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = false },
