@@ -711,6 +711,9 @@ require('lazy').setup({
     event = 'VimEnter',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
+    keys = {
+      { '<leader>st', '<cmd>TodoTelescope<cr>', desc = '[S]earch [T]odos' },
+    },
   },
 
   { -- Collection of various small independent plugins/modules
