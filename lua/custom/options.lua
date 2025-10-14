@@ -46,6 +46,7 @@ opt.smartindent = true
 opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 2
+opt.termguicolors = true
 opt.timeoutlen = 300
 opt.undofile = true
 opt.updatetime = 250

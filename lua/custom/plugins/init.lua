@@ -639,7 +639,8 @@ return {
         comment = '#95a5d7',
       },
     },
-    config = function()
+    config = function(_, opts)
+      require('dracula').setup(opts)
       vim.cmd.colorscheme('dracula')
     end,
   },
