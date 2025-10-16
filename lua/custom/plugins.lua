@@ -3,12 +3,12 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-
   {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {},
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
   },
+
   {
     'vhyrro/luarocks.nvim',
     priority = 1000,
@@ -17,6 +17,7 @@ return {
       rocks = { 'lua-curl', 'nvim-nio', 'mimetypes', 'xml2lua' },
     },
   },
+
   {
     'rest-nvim/rest.nvim',
     ft = 'http',
@@ -31,6 +32,7 @@ return {
       })
     end,
   },
+
   {
     'folke/snacks.nvim',
     priority = 1000,
@@ -606,6 +608,7 @@ return {
       })
     end,
   },
+
   {
     'phaazon/hop.nvim',
     config = function()
@@ -616,6 +619,7 @@ return {
       { '<leader>g1', '<cmd>HopChar1<cr>', desc = '[G]o to [1] character' },
     },
   },
+
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
@@ -623,6 +627,7 @@ return {
     -- use opts = {} for passing setup options
     -- this is equivalent to setup({}) function
   },
+
   {
     'almo7aya/openingh.nvim',
     keys = {
@@ -630,6 +635,7 @@ return {
       { '<leader>gf', '<cmd>OpenInGHFile <cr>', desc = 'Open in GitHub file' },
     },
   },
+
   {
     'Mofiqul/dracula.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -644,6 +650,7 @@ return {
       vim.cmd.colorscheme('dracula')
     end,
   },
+
   {
     'folke/noice.nvim',
     event = 'VeryLazy',
@@ -659,6 +666,7 @@ return {
       'rcarriga/nvim-notify',
     },
   },
+
   {
     'akinsho/bufferline.nvim',
     event = 'VeryLazy',
@@ -717,10 +725,21 @@ return {
       })
     end,
   },
+
   {
     'norcalli/nvim-colorizer.lua',
     config = function()
       require('colorizer').setup()
+    end,
+  },
+
+  {
+    'rachartier/tiny-inline-diagnostic.nvim',
+    event = 'VeryLazy',
+    priority = 1000,
+    config = function()
+      require('tiny-inline-diagnostic').setup()
+      vim.diagnostic.config({ virtual_text = false }) -- Disable default virtual text
     end,
   },
 }
