@@ -54,3 +54,6 @@ opt.updatetime = 250
 vim.schedule(function()
   opt.clipboard = 'unnamedplus'
 end)
+
+-- I don't want mini.surround, I prefer kylechui/nvim-surround.
+vim.g.minisurround_disable = true

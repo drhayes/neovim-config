@@ -657,14 +657,14 @@ return {
     end,
   },
 
-  {
-    'AlexvZyl/nordic.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('nordic').load()
-    end,
-  },
+  -- {
+  --   'AlexvZyl/nordic.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('nordic').load()
+  --   end,
+  -- },
 
   {
     'folke/noice.nvim',
@@ -755,6 +755,17 @@ return {
     config = function()
       require('tiny-inline-diagnostic').setup()
       vim.diagnostic.config({ virtual_text = false }) -- Disable default virtual text
+    end,
+  },
+
+  {
+    'kylechui/nvim-surround',
+    version = '^3.0.0',
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end,
   },
 }
