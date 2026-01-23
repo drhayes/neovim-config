@@ -651,21 +651,9 @@ return {
         comment = '#95a5d7',
       },
     },
-    -- config = function(_, opts)
-    -- require('dracula').setup(opts)
-    -- vim.cmd.colorscheme('dracula')
-    -- end,
-  },
-
-  {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
-    opts = {
-      flavour = 'mocha',
-    },
-    config = function()
-      vim.cmd.colorscheme('catppuccin')
+    config = function(_, opts)
+      require('dracula').setup(opts)
+      vim.cmd.colorscheme('dracula')
     end,
   },
 
