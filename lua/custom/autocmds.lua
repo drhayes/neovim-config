@@ -45,17 +45,23 @@ end
 
 local epiquery_templates_dir = vim.fn.expand('~') .. '/src/glg/epiquery-templates/'
 
--- Create an autocommand group
-vim.api.nvim_create_augroup('MustacheToSQL', { clear = true })
+vim.api.nvim_create_augroup('ForceFiletype', { clear = true })
 
--- Create an autocommand
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  group = 'MustacheToSQL',
+  group = 'ForceFiletype',
   pattern = '*.mustache',
   callback = function()
     local current_file = vim.fn.expand('%:p')
     if string.find(current_file, epiquery_templates_dir, 1, true) then
       vim.bo.filetype = 'sql'
     end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = 'ForceFiletype',
+  pattern = '*.hbs',
+  callback = function()
+    vim.bo.filetype = 'html'
   end,
 })
