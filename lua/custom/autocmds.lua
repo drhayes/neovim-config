@@ -43,20 +43,21 @@ for _, def in ipairs(definitions) do
   })
 end
 
-local epiquery_templates_dir = vim.fn.expand('~') .. '/src/glg/epiquery-templates/'
-
 vim.api.nvim_create_augroup('ForceFiletype', { clear = true })
 
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  group = 'ForceFiletype',
-  pattern = '*.mustache',
-  callback = function()
-    local current_file = vim.fn.expand('%:p')
-    if string.find(current_file, epiquery_templates_dir, 1, true) then
-      vim.bo.filetype = 'sql'
-    end
-  end,
-})
+if false then
+  local epiquery_templates_dir = vim.fn.expand('~') .. '/src/glg/epiquery-templates/'
+  vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+    group = 'ForceFiletype',
+    pattern = '*.mustache',
+    callback = function()
+      local current_file = vim.fn.expand('%:p')
+      if string.find(current_file, epiquery_templates_dir, 1, true) then
+        vim.bo.filetype = 'sql'
+      end
+    end,
+  })
+end
 
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = 'ForceFiletype',
