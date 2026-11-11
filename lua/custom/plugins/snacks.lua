@@ -26,6 +26,26 @@ return {
             picker.list.win:hscroll(true)
           end
         end,
+        -- The built-in insert action reads <cword> from the source buffer, which picks
+        -- the wrong window when a buffer is split. Read from the source window instead.
+        insert = function(picker, _, action)
+          if not action.expr then
+            return
+          end
+          local filter = picker.input.filter
+          local value = ''
+          local function read()
+            value = action.expr == 'line' and vim.api.nvim_get_current_line() or vim.fn.expand(action.expr)
+          end
+          if vim.api.nvim_win_is_valid(filter.current_win) then
+            vim.api.nvim_win_call(filter.current_win, read)
+          else
+            vim.api.nvim_buf_call(filter.current_buf, read)
+          end
+          vim.api.nvim_win_call(picker.input.win.win, function()
+            vim.api.nvim_put({ value }, 'c', true, true)
+          end)
+        end,
       },
       win = {
         input = {
