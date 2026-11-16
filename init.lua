@@ -668,6 +668,7 @@ require('lazy').setup({
         'diff',
         'gitcommit',
         'html',
+        'http',
         'lua',
         'luadoc',
         'markdown',
